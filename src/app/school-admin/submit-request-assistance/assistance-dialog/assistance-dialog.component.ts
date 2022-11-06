@@ -14,8 +14,8 @@ export class AssistanceDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.assistanceReqForm = this.formBuilder.group({
-      tutorialDesc: ['', Validators.required],
-      proposedDate: ['', Validators.required],
+      requestDesc: ['', Validators.required],
+      requestDate: ['', Validators.required],
       tutorialTime: ['', Validators.required],
       studentLevel: ['', Validators.required],
       studentNumber: ['', Validators.required],

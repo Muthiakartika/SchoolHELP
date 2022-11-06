@@ -7,15 +7,16 @@ import { AssistanceDialogComponent } from './assistance-dialog/assistance-dialog
 
 export interface RequestAssistanece {
   id: number;
-  tutorialDesc: string;
-  proposedDate: string;
+  status: string
+  requestDesc: string;
+  requestDate: string;
   tutorialTime: string;
   studentLevel: string;
   studentNumber: string;
 }
 
 const STATIC_DATA: RequestAssistanece[]= [
-  {id: 1, tutorialDesc: 'Assistance in cursed tools subject', proposedDate: '1/2/2023', tutorialTime: '15:00pm', studentLevel: '3rd Grade', studentNumber: '4'}
+  {id: 1, status: 'New', requestDesc: 'Assistance in cursed tools subject', requestDate: '1/2/2023', tutorialTime: '15:00pm', studentLevel: '3rd Grade', studentNumber: '4'}
 ]
 
 @Component({
@@ -27,7 +28,7 @@ export class SubmitRequestAssistanceComponent implements AfterViewInit {
 
   constructor(private dialog: MatDialog) { }
   
-  displayedColumnsAssistance: string[] = ['id', 'tutorialDesc', 'proposedDate', 'tutorialTime', 'studentLevel', 'studentNumber', 'action'];
+  displayedColumnsAssistance: string[] = ['id', 'status','requestDesc', 'requestDate', 'tutorialTime', 'studentLevel', 'studentNumber', 'action'];
   dataSourceAssistance!: MatTableDataSource<RequestAssistanece>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

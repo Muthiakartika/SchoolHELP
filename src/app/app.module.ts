@@ -45,6 +45,7 @@ import { RegisterSchoolAdminDialogComponent } from './schoolhelp-admin/register-
 import { ReviewOffersDialogComponent } from './school-admin/review-offers/review-offers-dialog/review-offers-dialog.component';
 import { AssistanceDialogComponent } from './school-admin/submit-request-assistance/assistance-dialog/assistance-dialog.component';
 import { ResourceDialogComponent } from './school-admin/submit-request-resource/resource-dialog/resource-dialog.component';
+import { SubmitOfferDialogComponent } from './volunteer/view-requests/submit-offer-dialog/submit-offer-dialog.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { ResourceDialogComponent } from './school-admin/submit-request-resource/
     RegisterSchoolAdminDialogComponent,
     ReviewOffersDialogComponent,
     AssistanceDialogComponent,
-    ResourceDialogComponent
+    ResourceDialogComponent,
+    SubmitOfferDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -7,13 +7,14 @@ import { ResourceDialogComponent } from './resource-dialog/resource-dialog.compo
 
 export interface RequestResource {
   id: number;
+  status: string;
   resourceDesc: string;
   resourceType: string;
   resourceNumber: string;
 }
 
 const STATIC_DATA: RequestResource[]= [
-  {id: 1, resourceDesc: 'PC', resourceType: 'PC', resourceNumber: '100'}
+  {id: 1, status: 'New',resourceDesc: 'PC', resourceType: 'PC', resourceNumber: '100'}
 ]
 
 @Component({
@@ -23,7 +24,7 @@ const STATIC_DATA: RequestResource[]= [
 })
 export class SubmitRequestResourceComponent implements AfterViewInit {
 
-  displayedColumnsResource: string[] = ['id', 'resourceDesc', 'resourceType', 'resourceNumber', 'action'];
+  displayedColumnsResource: string[] = ['id', 'status', 'resourceDesc', 'resourceType', 'resourceNumber', 'action'];
   dataSourceResource!: MatTableDataSource<RequestResource>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
