@@ -1,0 +1,26 @@
+
+<div class="form-container" style="max-width: 600px;">
+    <h1 style="text-align: center; margin-bottom: 30px;">Login to SchoolHELP</h1>
+    <form class="form-control">
+        <mat-form-field class="form-full-width">
+            <mat-label>Username</mat-label>
+            <input matInput type="text">
+        </mat-form-field>
+        <!-- <mat-form-field class="form-full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="password">
+        </mat-form-field> -->
+        <!-- ini dia ke refresh terus -->
+        <mat-form-field class="form-full-width">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="btn-block">SIGN UP</button>
+    </form>
+    <div>
+        <a routerLink="/register-volunteer"><p style="text-align: center; padding-top: 20px;">Don't have an account? Sign Up</p></a>
+    </div>
+</div>

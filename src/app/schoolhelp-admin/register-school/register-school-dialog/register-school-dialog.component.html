@@ -1,0 +1,24 @@
+<div>
+    <h1 mat-dialog-title>Register New School</h1>
+    <div class="mat-dialog-content">
+        <form [formGroup]="schoolForm">
+            <mat-form-field appearance="outline">
+                <mat-label>School Name</mat-label>
+                <input formControlName="schoolName" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>City</mat-label>
+                <input formControlName="schoolCity" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Address</mat-label>
+                <input formControlName="schoolAddress" matInput>
+            </mat-form-field>
+        </form>
+    </div>
+    <mat-dialog-actions [align]="'end'">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-flat-button color="primary">{{actionButton}}</button>
+        <!-- <button mat-flat-button color="primary"[mat-dialog-close]="true" cdkFocusInitial>Add School</button> -->
+    </mat-dialog-actions>
+</div>

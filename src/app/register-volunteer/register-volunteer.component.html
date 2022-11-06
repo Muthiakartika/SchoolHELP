@@ -1,0 +1,54 @@
+<div class="form-container" style="max-width: 600px;">
+    <h1 style="text-align: center; margin-bottom: 30px;">Sign Up to SchoolHELP as Volunteer</h1>
+    <form class="form-control">
+        <mat-form-field class="form-full-width">
+            <mat-label>Full Name</mat-label>
+            <input matInput type="text">
+        </mat-form-field>
+        <mat-form-field class="form-full-width">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="name@example.com" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <!-- <mat-form-field class="form-full-width">
+            <mat-label>E-Mail</mat-label>
+            <input matInput type="text">
+        </mat-form-field> -->
+        <mat-form-field class="form-full-width">
+            <mat-label>Username</mat-label>
+            <input matInput type="text">
+        </mat-form-field>
+        <mat-form-field class="form-full-width">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+        <!-- <mat-form-field class="form-full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Use 6 or more character">
+        </mat-form-field> -->
+        <mat-form-field class="form-full-width">
+            <mat-label>Phone Number</mat-label>
+            <input matInput type="text">
+        </mat-form-field>
+        <mat-form-field class="form-full-width">
+            <mat-label>Date of Birth</mat-label>
+            <input matInput type="date">
+        </mat-form-field>
+        <mat-form-field class="form-full-width">
+            <mat-label>Occupation</mat-label>
+            <input matInput type="text">
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="btn-block">SIGN UP</button>
+      
+        <!-- <mat-form-field class="form-full-width">
+            <mat-label>Leave a comment</mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field> -->
+    </form>
+    <div>
+        <a routerLink="/login"><p style="text-align: center; padding-top: 20px;">Already have an account? Login!</p></a>
+    </div>
+</div>

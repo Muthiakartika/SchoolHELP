@@ -1,1 +1,65 @@
-/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.btn-block {
+    display: block;
+    width: 100%;
+  }
+
+  .form-container {
+    max-width: 500px;
+    margin: 30px auto;
+    overflow: auto;
+    min-height: 300px;
+    border: 1px solid black;
+    padding: 30px;
+    border-radius: 5px;
+  }
+
+
+.page {
+    color: rgb(24, 2, 2);
+    padding: 0 1rem;
+    background: #f6f6f6;
+}
+.page_box {
+    min-height: 120px;
+    background: #f6f6f6;
+    margin: 0 -1rem;
+    font-size: 30px;
+}
+.page_content {
+    min-height: calc(100vh - 178px);
+    border-radius: 10px;
+    margin-top: -2rem;
+    background: #fefefe;
+    color: black;
+    font-size: 18px;
+}
+.page_content-data {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.spacer{
+    flex: 1 1 auto;
+}
+
+.add-btn{
+    background: #e29b65; 
+    color:black;
+}
+.add-btn:hover{
+    background: black; 
+    color:#e29b65;
+}
+
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }

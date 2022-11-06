@@ -1,0 +1,57 @@
+<div class="container-fluid page">
+    <div class="d-flex page_box p-3 mt-2">Submit Request for Resource</div>
+    <div class="page_content shadow p-3 position-relative">
+        <div class="section-title">
+            <mat-toolbar style="background-color: white;">
+                <span>Submitted Request for Resource Table</span>
+                <span class="spacer"></span>
+                <button class="add-btn" mat-flat-button aria-label="request-resource" (click)="openDialog()">
+                    <span>Add Request</span>
+                </button>
+            </mat-toolbar>
+        </div>
+        <div class="table-content">
+            <mat-form-field appearance="standard">
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Stikom" #input>
+            </mat-form-field>
+            <div class="mat-elevation-z2" >
+                <table mat-table [dataSource]="dataSourceResource" matSort>
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="resourceDesc">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Resource Description </th>
+                        <td mat-cell *matCellDef="let row"> {{row.resourceDesc}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="resourceType">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Resource Type </th>
+                        <td mat-cell *matCellDef="let row"> {{row.resourceType}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="resourceNumber">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Number of Resource </th>
+                        <td mat-cell *matCellDef="let row"> {{row.resourceNumber}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                        <td mat-cell *matCellDef="let row">
+                            <button mat-icon-button color="primary">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-icon-button color="warn">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsResource"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsResource;"></tr>
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+            </div>  
+        </div>
+    </div>
+</div>

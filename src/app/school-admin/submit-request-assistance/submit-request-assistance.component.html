@@ -1,0 +1,65 @@
+<div class="container-fluid page">
+    <div class="d-flex page_box p-3 mt-2">Submit Request for Assistance</div>
+    <div class="page_content shadow p-3 position-relative">
+        <div class="section-title">
+            <mat-toolbar style="background-color: white;">
+                <span>Submitted Request for Assistance Table</span>
+                <span class="spacer"></span>
+                <button class="add-btn" mat-flat-button aria-label="request-assistance" (click)="openDialog()">
+                    <span>Add Request</span>
+                </button>
+            </mat-toolbar>
+        </div>
+        <div class="table-content">
+            <mat-form-field appearance="standard">
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Stikom" #input>
+            </mat-form-field>
+            <div class="mat-elevation-z2" >
+                <table mat-table [dataSource]="dataSourceAssistance" matSort>
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="tutorialDesc">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> tutorialDesc </th>
+                        <td mat-cell *matCellDef="let row"> {{row.tutorialDesc}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="proposedDate">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> proposedDate </th>
+                        <td mat-cell *matCellDef="let row"> {{row.proposedDate}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="tutorialTime">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> tutorialTime </th>
+                        <td mat-cell *matCellDef="let row"> {{row.tutorialTime}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="studentLevel">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> studentLevel </th>
+                        <td mat-cell *matCellDef="let row"> {{row.studentLevel}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="studentNumber">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> studentNumber </th>
+                        <td mat-cell *matCellDef="let row"> {{row.studentNumber}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                        <td mat-cell *matCellDef="let row">
+                            <button mat-icon-button color="primary">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-icon-button color="warn">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsAssistance"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsAssistance;"></tr>
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+            </div>  
+        </div>
+    </div>
+</div>

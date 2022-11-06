@@ -1,0 +1,44 @@
+<div>
+    <h1 mat-dialog-title>Register New School Admin</h1>
+    <div class="mat-dialog-content">
+        <form [formGroup]="adminForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Full Name</mat-label>
+                <input formControlName="adminFullName" matInput type="text">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Enter your email</mat-label>
+                <input formControlName="adminEmail" matInput placeholder="name@example.com" type="text">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input formControlName="adminUsername" matInput type="text">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Enter your password</mat-label>
+                <input formControlName="adminPassword" matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Phone Number</mat-label>
+                <input formControlName="adminPhone" matInput type="text">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Position</mat-label>
+                <input formControlName="adminPosition" matInput type="text">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>School Name</mat-label>
+                <input formControlName="adminSchool" matInput type="text">
+            </mat-form-field>
+        </form>
+    </div>
+    <mat-dialog-actions [align]="'end'">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-flat-button color="primary">Add Admin</button>
+        <!-- <button mat-flat-button color="primary"[mat-dialog-close]="true" cdkFocusInitial>Add Admin</button> -->
+    </mat-dialog-actions>
+</div>
+

@@ -1,0 +1,33 @@
+<div>
+    <h1 mat-dialog-title>Submit Request for Assistance</h1>
+    <div class="mat-dialog-content">
+        <form [formGroup]="assistanceReqForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Description of the Tutorial Request</mat-label>
+                <input formControlName="tutorialDesc" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Purposed Date</mat-label>
+                <input formControlName="proposedDate" matInput type="date">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Time of Tutorial</mat-label>
+                <input formControlName="tutorialTime" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Student Level</mat-label>
+                <input formControlName="studentLevel" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Number of Student</mat-label>
+                <input formControlName="studentNumber" matInput>
+            </mat-form-field>
+        </form>
+    </div>
+    <mat-dialog-actions [align]="'end'">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-flat-button color="primary">Submit Request</button>
+        <!-- <button mat-flat-button color="primary"[mat-dialog-close]="true" cdkFocusInitial>Add School</button> -->
+    </mat-dialog-actions>
+</div>
+
