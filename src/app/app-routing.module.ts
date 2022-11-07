@@ -11,12 +11,14 @@ import { SubmitRequestComponent } from './school-admin/submit-request/submit-req
 import { DashboardSchoolhelpAdminComponent } from './schoolhelp-admin/dashboard-schoolhelp-admin/dashboard-schoolhelp-admin.component';
 import { RegisterSchoolAdminComponent } from './schoolhelp-admin/register-school-admin/register-school-admin.component';
 import { RegisterSchoolComponent } from './schoolhelp-admin/register-school/register-school.component';
+import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 import { DashboardVolunteerComponent } from './volunteer/dashboard-volunteer/dashboard-volunteer.component';
 import { SubmitOfferComponent } from './volunteer/submit-offer/submit-offer.component';
 import { ViewRequestsComponent } from './volunteer/view-requests/view-requests.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
+  {path: '', component: LoginComponent},
   
   {path: 'register-school', component: RegisterSchoolComponent},
   {path: 'register-school-admin', component: RegisterSchoolAdminComponent},

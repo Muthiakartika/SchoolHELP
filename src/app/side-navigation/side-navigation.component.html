@@ -1,56 +1,64 @@
+
 <mat-nav-list>
   <div class="logo py-4">
     <img src="./assets/logo-placeholder.png" alt="Company Logo" />
   </div>
   <mat-divider></mat-divider>
+  
   <a mat-list-item routerLinkActive="list-item-active" routerLink="login">
     <span>Login</span>
   </a>
 
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="dashboard-schoolhelp-admin">
-    <mat-icon>dashboard</mat-icon>
-    <span>Dashboard SchoolHELP Admin</span>
-  </a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="register-school">
-    <span>Register School</span>
-  </a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="register-school-admin">
-    <span>Register School Admin</span>
-  </a>
+  <div>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard-schoolhelp-admin">
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard SchoolHELP Admin</span>
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" [routerLink]="'register-school'">
+      <span>Register School</span>
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" [routerLink]="'/register-school-admin'">
+      <span>Register School Admin</span>
+    </a>
+  </div>
 
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="dashboard-school-admin">
-    <mat-icon>dashboard</mat-icon>
-    <span>Dashboard School Admin</span>
-  </a>
-  <!-- <a mat-list-item routerLinkActive="list-item-active" routerLink="submit-request">
-    <span>Submit Request</span>
-  </a> -->
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="submit-request-assistance">
-    <span>Submit Request Assistance</span>
-  </a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="submit-request-resource">
-    <span>Submit Request Resource</span>
-  </a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="review-offers">
-    <span>Review Offers</span>
-  </a>
+  <!-- <div>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="dashboard-school-admin">
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard School Admin</span>
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="submit-request">
+      <span>Submit Request</span>
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="submit-request-assistance">
+      <span>Submit Request Assistance</span>
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="submit-request-resource">
+      <span>Submit Request Resource</span>
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="review-offers">
+      <span>Review Offers</span>
+    </a>
+  </div>
 
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="register-volunteer">
-    <span>Register as Volunteer</span>
-  </a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="dashboard-volunteer">
-    <mat-icon>dashboard</mat-icon>
-    <span>Dashboard Volunteer</span>
-  </a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="view-requests">
-    <span>View Requests</span>
-  </a>
-  <!-- <a mat-list-item routerLinkActive="list-item-active" routerLink="submit-offer">
-    <span>Submit Offer</span>
-  </a> -->
+  <div>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="register-volunteer">
+      <span>Register as Volunteer</span>
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="dashboard-volunteer">
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard Volunteer</span>
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="view-requests">
+      <span>View Requests</span>
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="submit-offer">
+      <span>Submit Offer</span>
+    </a>
+  </div>
 
   <a mat-list-item routerLinkActive="list-item-active" routerLink="edit-profile">
     <span>Edit Profile</span>
-  </a>
+  </a> -->
 
 </mat-nav-list>  

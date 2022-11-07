@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-volunteer',
@@ -9,12 +9,22 @@ import { FormControl, Validators } from '@angular/forms';
 export class RegisterVolunteerComponent implements OnInit {
 
   hide = true;
+  public registerForm: FormGroup;
 
   email = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.registerForm = this.formBuilder.group({
+      fullName: ['', Validators.required],
+      email: ['', Validators.required, Validators.email],
+      userName: ['', Validators.required],
+      passWord: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      birthDate: ['', Validators.required],
+      occupation: ['', Validators.required]
+    })
   }
 
   getErrorMessage() {
