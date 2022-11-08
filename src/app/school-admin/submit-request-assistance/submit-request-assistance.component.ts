@@ -24,7 +24,7 @@ const STATIC_DATA: RequestAssistanece[]= [
   templateUrl: './submit-request-assistance.component.html',
   styleUrls: ['./submit-request-assistance.component.css']
 })
-export class SubmitRequestAssistanceComponent implements AfterViewInit {
+export class SubmitRequestAssistanceComponent implements OnInit {
 
   constructor(private dialog: MatDialog) { }
   
@@ -35,12 +35,12 @@ export class SubmitRequestAssistanceComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   ngAfterViewInit(): void {
-    this.dataSourceAssistance = new MatTableDataSource(STATIC_DATA);
     this.dataSourceAssistance.paginator = this.paginator;
     this.dataSourceAssistance.sort = this.sort;
   }
 
   ngOnInit(): void {
+    this.dataSourceAssistance = new MatTableDataSource(STATIC_DATA);
   }
 
   applyFilter(event: Event) {

@@ -8,9 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'SchoolHELP-Web-System';
 
-  sideBarOpen = true;
+  // sideBarOpen = true;
 
-  sideBarToggler() {
-    this.sideBarOpen = !this.sideBarOpen;
-  }
+  // sideBarToggler() {
+  //   this.sideBarOpen = !this.sideBarOpen;
+  // }
 }

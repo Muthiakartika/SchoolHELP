@@ -26,7 +26,7 @@ const STATIC_DATA: SchoolData[]=[
   templateUrl: './register-school.component.html',
   styleUrls: ['./register-school.component.css']
 })
-export class RegisterSchoolComponent implements AfterViewInit {
+export class RegisterSchoolComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'schoolName', 'schoolCity', 'schoolAddress', 'action'];
   dataSource!: MatTableDataSource<SchoolData>;
@@ -35,14 +35,17 @@ export class RegisterSchoolComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private dialog: MatDialog) { }
+  
   ngAfterViewInit(): void {
-    this.dataSource = new MatTableDataSource(STATIC_DATA);
+    // this.dataSource = new MatTableDataSource(STATIC_DATA);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
   ngOnInit(): void {
-    
+    this.dataSource = new MatTableDataSource(STATIC_DATA);
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {

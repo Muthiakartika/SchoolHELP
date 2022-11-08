@@ -26,7 +26,7 @@ const STATIC_DATA: SchoolAdminData[]=[
   templateUrl: './register-school-admin.component.html',
   styleUrls: ['./register-school-admin.component.css']
 })
-export class RegisterSchoolAdminComponent implements AfterViewInit {
+export class RegisterSchoolAdminComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'adminFullName', 'adminEmail', 'adminUsername', 'adminPassword' , 'adminPhone', 'adminPosition', 'adminSchool', 'action'];
   dataSource!: MatTableDataSource<SchoolAdminData>;
@@ -36,12 +36,12 @@ export class RegisterSchoolAdminComponent implements AfterViewInit {
 
   constructor(private dialog: MatDialog) { }
   ngAfterViewInit(): void {
-    this.dataSource = new MatTableDataSource(STATIC_DATA);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
   ngOnInit(): void {
+    this.dataSource = new MatTableDataSource(STATIC_DATA);
   }
 
   applyFilter(event: Event) {

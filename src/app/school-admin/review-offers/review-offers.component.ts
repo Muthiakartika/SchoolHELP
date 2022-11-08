@@ -29,7 +29,7 @@ const STATIC_DATA: ReviewOffers[]=[
     ]),
   ]
 })
-export class ReviewOffersComponent implements AfterViewInit {
+export class ReviewOffersComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'requestDesc', 'requestDate', 'requestStatus', 'action'];
   dataSource!: MatTableDataSource<ReviewOffers>;
@@ -39,12 +39,12 @@ export class ReviewOffersComponent implements AfterViewInit {
   
   constructor(private dialog: MatDialog) { }
   ngAfterViewInit(): void {
-    this.dataSource = new MatTableDataSource(STATIC_DATA);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
   ngOnInit(): void {
+    this.dataSource = new MatTableDataSource(STATIC_DATA);
   }
 
   applyFilter(event: Event) {

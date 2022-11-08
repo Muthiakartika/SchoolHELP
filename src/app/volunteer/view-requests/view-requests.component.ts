@@ -34,12 +34,12 @@ export class ViewRequestsComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   ngAfterViewInit(): void {
-    this.dataSource = new MatTableDataSource(STATIC_DATA);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
   ngOnInit(): void {
+    this.dataSource = new MatTableDataSource(STATIC_DATA);
   }
 
   applyFilter(event: Event) {

@@ -22,7 +22,7 @@ const STATIC_DATA: RequestResource[]= [
   templateUrl: './submit-request-resource.component.html',
   styleUrls: ['./submit-request-resource.component.css']
 })
-export class SubmitRequestResourceComponent implements AfterViewInit {
+export class SubmitRequestResourceComponent implements OnInit {
 
   displayedColumnsResource: string[] = ['id', 'status', 'resourceDesc', 'resourceType', 'resourceNumber', 'action'];
   dataSourceResource!: MatTableDataSource<RequestResource>;
@@ -32,12 +32,12 @@ export class SubmitRequestResourceComponent implements AfterViewInit {
 
   constructor(private dialog: MatDialog) { }
   ngAfterViewInit(): void {
-    this.dataSourceResource = new MatTableDataSource(STATIC_DATA);
     this.dataSourceResource.paginator = this.paginator;
     this.dataSourceResource.sort = this.sort;
   }
 
   ngOnInit(): void {
+    this.dataSourceResource = new MatTableDataSource(STATIC_DATA);
   }
 
   applyFilter(event: Event) {

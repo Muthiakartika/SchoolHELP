@@ -19,6 +19,7 @@ import { ViewRequestsComponent } from './volunteer/view-requests/view-requests.c
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: '', component: LoginComponent},
+  {path: 'navigation', component: SideNavigationComponent},
   
   {path: 'register-school', component: RegisterSchoolComponent},
   {path: 'register-school-admin', component: RegisterSchoolAdminComponent},
