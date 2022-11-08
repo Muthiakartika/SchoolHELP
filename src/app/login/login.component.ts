@@ -24,26 +24,26 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  loginChecker(): void{
-    var isChecked = true;
-    if(!this.loginForm.valid){
-      for(var a in this.loginForm.controls){
-        this.loginForm.controls[a].markAsDirty();
-        this.loginForm.controls[a].updateValueAndValidity();
-        isChecked = false;
-      }
-    }
-    if(this.loginForm.valid){
-      alert('Login Success');
-      console.log(this.loginForm.value);
+  // loginChecker(): void{
+  //   var isChecked = true;
+  //   if(!this.loginForm.valid){
+  //     for(var a in this.loginForm.controls){
+  //       this.loginForm.controls[a].markAsDirty();
+  //       this.loginForm.controls[a].updateValueAndValidity();
+  //       isChecked = false;
+  //     }
+  //   }
+  //   if(this.loginForm.valid){
+  //     alert('Login Success');
+  //     console.log(this.loginForm.value);
 
-      localStorage.setItem('token', 'shshsh');
-      this.loginForm.value.userName == "schoolhelpadmin" ? localStorage.setItem('userRole', 'schoolhelpAdmin') : localStorage.setItem('userRole', 'schoolAdmin');
+  //     localStorage.setItem('token', 'shshsh');
+  //     this.loginForm.value.userName == "schoolhelpadmin" ? localStorage.setItem('userRole', 'schoolhelpAdmin') : localStorage.setItem('userRole', 'schoolAdmin');
 
-      this.loginForm.reset();
-      this.router.navigate(['navigation']);
+  //     this.loginForm.reset();
+  //     this.router.navigate(['navigation']);
 
-    }
-  }
+  //   }
+  // }
 
 }
