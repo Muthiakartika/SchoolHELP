@@ -46,6 +46,9 @@ import { ReviewOffersDialogComponent } from './school-admin/review-offers/review
 import { AssistanceDialogComponent } from './school-admin/submit-request-assistance/assistance-dialog/assistance-dialog.component';
 import { ResourceDialogComponent } from './school-admin/submit-request-resource/resource-dialog/resource-dialog.component';
 import { SubmitOfferDialogComponent } from './volunteer/view-requests/submit-offer-dialog/submit-offer-dialog.component';
+import { SchoolAdminNavComponent } from './school-admin/school-admin-nav/school-admin-nav.component';
+import { SchoolhelpAdminNavComponent } from './schoolhelp-admin/schoolhelp-admin-nav/schoolhelp-admin-nav.component';
+import { VolunteerNavComponent } from './volunteer/volunteer-nav/volunteer-nav.component';
 
 
 @NgModule({
@@ -72,7 +75,10 @@ import { SubmitOfferDialogComponent } from './volunteer/view-requests/submit-off
     ReviewOffersDialogComponent,
     AssistanceDialogComponent,
     ResourceDialogComponent,
-    SubmitOfferDialogComponent
+    SubmitOfferDialogComponent,
+    SchoolAdminNavComponent,
+    SchoolhelpAdminNavComponent,
+    VolunteerNavComponent
   ],
   imports: [
     BrowserModule,
