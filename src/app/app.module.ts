@@ -48,6 +48,11 @@ import { SubmitOfferDialogComponent } from './volunteer/view-requests/submit-off
 import { SchoolAdminNavComponent } from './school-admin/school-admin-nav/school-admin-nav.component';
 import { SchoolhelpAdminNavComponent } from './schoolhelp-admin/schoolhelp-admin-nav/schoolhelp-admin-nav.component';
 import { VolunteerNavComponent } from './volunteer/volunteer-nav/volunteer-nav.component';
+import { SchoolAdminHeadComponent } from './school-admin/school-admin-head/school-admin-head.component';
+import { EditProfileSchoolAdminComponent } from './school-admin/edit-profile-school-admin/edit-profile-school-admin.component';
+import { SchoolhelpAdminHeadComponent } from './schoolhelp-admin/schoolhelp-admin-head/schoolhelp-admin-head.component';
+import { VolunteerHeadComponent } from './volunteer/volunteer-head/volunteer-head.component';
+import { EditProfileVolunteerComponent } from './volunteer/edit-profile-volunteer/edit-profile-volunteer.component';
 
 
 @NgModule({
@@ -76,7 +81,12 @@ import { VolunteerNavComponent } from './volunteer/volunteer-nav/volunteer-nav.c
     SubmitOfferDialogComponent,
     SchoolAdminNavComponent,
     SchoolhelpAdminNavComponent,
-    VolunteerNavComponent
+    VolunteerNavComponent,
+    SchoolAdminHeadComponent,
+    EditProfileSchoolAdminComponent,
+    SchoolhelpAdminHeadComponent,
+    VolunteerHeadComponent,
+    EditProfileVolunteerComponent
   ],
   imports: [
     BrowserModule,

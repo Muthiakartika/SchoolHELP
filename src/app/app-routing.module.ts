@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterVolunteerComponent } from './register-volunteer/register-volunteer.component';
 import { DashboardSchoolAdminComponent } from './school-admin/dashboard-school-admin/dashboard-school-admin.component';
+import { EditProfileSchoolAdminComponent } from './school-admin/edit-profile-school-admin/edit-profile-school-admin.component';
 import { ReviewOffersComponent } from './school-admin/review-offers/review-offers.component';
 import { SchoolAdminNavComponent } from './school-admin/school-admin-nav/school-admin-nav.component';
 import { SubmitRequestAssistanceComponent } from './school-admin/submit-request-assistance/submit-request-assistance.component';
@@ -14,6 +15,7 @@ import { RegisterSchoolComponent } from './schoolhelp-admin/register-school/regi
 import { SchoolhelpAdminNavComponent } from './schoolhelp-admin/schoolhelp-admin-nav/schoolhelp-admin-nav.component';
 import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 import { DashboardVolunteerComponent } from './volunteer/dashboard-volunteer/dashboard-volunteer.component';
+import { EditProfileVolunteerComponent } from './volunteer/edit-profile-volunteer/edit-profile-volunteer.component';
 import { SubmitOfferComponent } from './volunteer/submit-offer/submit-offer.component';
 import { ViewRequestsComponent } from './volunteer/view-requests/view-requests.component';
 import { VolunteerNavComponent } from './volunteer/volunteer-nav/volunteer-nav.component';
@@ -40,6 +42,9 @@ const routes: Routes = [
   {path: 'dashboard-volunteer', component: DashboardVolunteerComponent},
   {path: 'view-requests', component: ViewRequestsComponent},
   {path: 'submit-offer', component: SubmitOfferComponent},
+
+  {path: 'edit-profile-school-admin', component: EditProfileSchoolAdminComponent},
+  {path: 'edit-profile-volunteer', component: EditProfileVolunteerComponent}
   
 ];
 

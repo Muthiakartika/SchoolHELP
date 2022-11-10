@@ -1,0 +1,46 @@
+<div class="container-fluid page">
+    <div class="d-flex page_box p-3 mt-2">Edit Profile</div>
+    <div class="page_content shadow p-3 position-relative">
+        <div>
+            <form>
+                <!-- fullname, email, phone, staffID and position -->
+                <div class="profile-picture">
+                    <label class="hoverable" for="fileInput">
+                        <img [src]="url ? url : './assets/user-placeholder.png'">
+                        <div class="hover-text">Choose file</div>
+                        <div class="background"></div>
+                      </label>
+                      <br/>
+                      <input id="fileInput" type='file' (change)="onSelectFile($event)">
+                      <button mat-stroked-button color="primary" *ngIf="url" (click)="delete()" style="margin-top: 10px; margin-bottom: 10px">delete</button>
+                </div>
+                <mat-form-field class="form-full-width" appearance="fill">
+                    <mat-label>Full Name</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <mat-form-field class="form-full-width" appearance="fill">
+                    <mat-label>E-mail</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <mat-form-field class="form-full-width" appearance="fill">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <mat-form-field class="form-full-width" appearance="fill">
+                    <mat-label>Staff ID</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <mat-form-field class="form-full-width" appearance="fill">
+                    <mat-label>Occupation</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <div class="buttonGrp" style="margin-top: 10px;">
+                    <button mat-flat-button color="warn">Cancel</button>
+                    <button mat-flat-button color="primary" style="margin-left: 5px;">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
