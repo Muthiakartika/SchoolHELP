@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterVolunteerComponent } from './register-volunteer/register-volunteer.component';
 import { DashboardSchoolAdminComponent } from './school-admin/dashboard-school-admin/dashboard-school-admin.component';
@@ -41,8 +40,6 @@ const routes: Routes = [
   {path: 'dashboard-volunteer', component: DashboardVolunteerComponent},
   {path: 'view-requests', component: ViewRequestsComponent},
   {path: 'submit-offer', component: SubmitOfferComponent},
-
-  {path: 'edit-profile', component: EditProfileComponent}
   
 ];
 

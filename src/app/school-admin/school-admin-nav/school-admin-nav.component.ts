@@ -17,5 +17,4 @@ export class SchoolAdminNavComponent implements OnInit {
   sideBarToggler() {
     this.sideBarOpen = !this.sideBarOpen;
   }
-
 }

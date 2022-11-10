@@ -37,7 +37,6 @@ import { SubmitRequestComponent } from './school-admin/submit-request/submit-req
 import { SubmitRequestAssistanceComponent } from './school-admin/submit-request-assistance/submit-request-assistance.component';
 import { SubmitRequestResourceComponent } from './school-admin/submit-request-resource/submit-request-resource.component';
 import { ReviewOffersComponent } from './school-admin/review-offers/review-offers.component';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterVolunteerComponent } from './register-volunteer/register-volunteer.component';
 import { RegisterSchoolDialogComponent } from './schoolhelp-admin/register-school/register-school-dialog/register-school-dialog.component';
@@ -67,7 +66,6 @@ import { VolunteerNavComponent } from './volunteer/volunteer-nav/volunteer-nav.c
     SubmitRequestAssistanceComponent,
     SubmitRequestResourceComponent,
     ReviewOffersComponent,
-    EditProfileComponent,
     LoginComponent,
     RegisterVolunteerComponent,
     RegisterSchoolDialogComponent,
