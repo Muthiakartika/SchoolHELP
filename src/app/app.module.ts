@@ -49,11 +49,14 @@ import { SchoolAdminNavComponent } from './school-admin/school-admin-nav/school-
 import { SchoolhelpAdminNavComponent } from './schoolhelp-admin/schoolhelp-admin-nav/schoolhelp-admin-nav.component';
 import { VolunteerNavComponent } from './volunteer/volunteer-nav/volunteer-nav.component';
 import { SchoolAdminHeadComponent } from './school-admin/school-admin-head/school-admin-head.component';
-import { EditProfileSchoolAdminComponent } from './school-admin/edit-profile-school-admin/edit-profile-school-admin.component';
 import { SchoolhelpAdminHeadComponent } from './schoolhelp-admin/schoolhelp-admin-head/schoolhelp-admin-head.component';
 import { VolunteerHeadComponent } from './volunteer/volunteer-head/volunteer-head.component';
 import { EditProfileVolunteerComponent } from './volunteer/edit-profile-volunteer/edit-profile-volunteer.component';
-
+import { EditProfileSchoolAdminComponent } from './school-admin/edit-profile-school-admin/edit-profile-school-admin.component';
+import { ProfileUpdateComponent } from './school-admin/edit-profile-school-admin/profile-update/profile-update.component';
+import { ChangePasswordComponent } from './school-admin/edit-profile-school-admin/change-password/change-password.component';
+import { ChangePasswordVolunteerComponent } from './volunteer/edit-profile-volunteer/change-password-volunteer/change-password-volunteer.component';
+import { ProfileUpdateVolunteerComponent } from './volunteer/edit-profile-volunteer/profile-update-volunteer/profile-update-volunteer.component';
 
 @NgModule({
   declarations: [
@@ -83,10 +86,14 @@ import { EditProfileVolunteerComponent } from './volunteer/edit-profile-voluntee
     SchoolhelpAdminNavComponent,
     VolunteerNavComponent,
     SchoolAdminHeadComponent,
-    EditProfileSchoolAdminComponent,
     SchoolhelpAdminHeadComponent,
     VolunteerHeadComponent,
-    EditProfileVolunteerComponent
+    EditProfileVolunteerComponent,
+    EditProfileSchoolAdminComponent,
+    ProfileUpdateComponent,
+    ChangePasswordComponent,
+    ChangePasswordVolunteerComponent,
+    ProfileUpdateVolunteerComponent
   ],
   imports: [
     BrowserModule,
