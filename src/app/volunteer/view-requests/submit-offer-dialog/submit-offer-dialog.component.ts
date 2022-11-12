@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-submit-offer-dialog',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubmitOfferDialogComponent implements OnInit {
 
-  constructor() { }
+  actionButton: string = 'Submit';
+  applyForm!: FormGroup;
+
+  constructor(private formBuilder: FormBuilder, private dialogRef: MatDialogRef<SubmitOfferDialogComponent>) { }
 
   ngOnInit(): void {
+    this.applyForm = this.formBuilder.group({
+      remarks: ['', Validators.required]
+    });
   }
 
 }

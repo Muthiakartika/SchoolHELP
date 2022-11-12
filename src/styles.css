@@ -1,10 +1,11 @@
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-.btn-block {
-    display: block;
-    width: 100%;
+  html, body { 
+    height: 100%; 
   }
+  
+  body { 
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background: #f9faf4;
+  }
+
 
   .form-container {
     max-width: 500px;
@@ -14,71 +15,134 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border: 1px solid black;
     padding: 30px;
     border-radius: 5px;
-    background: white;
+    background: #fcfff0;
   }
 
+  .page {
+      color: rgb(24, 2, 2);
+      padding: 0 1rem;
+      background: #f9faf4;
+  }
+  .page_box {
+      min-height: 120px;
+      background: #f9faf4;
+      margin: 0 -1rem;
+      font-size: 30px;
+  }
+  .page_content {
+      min-height: calc(100vh - 178px);
+      border-radius: 10px;
+      margin-top: -2rem;
+      background: #f9faf4;
+      color: black;
+      font-size: 18px;
+  }
+  .page_content-data {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
 
-.page {
-    color: rgb(24, 2, 2);
-    padding: 0 1rem;
-    background: #f6f6f6;
-}
-.page_box {
-    min-height: 120px;
-    background: #f6f6f6;
-    margin: 0 -1rem;
-    font-size: 30px;
-}
-.page_content {
-    min-height: calc(100vh - 178px);
-    border-radius: 10px;
-    margin-top: -2rem;
-    background: #fefefe;
-    color: black;
-    font-size: 18px;
-}
-.page_content-data {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+  .spacer{
+      flex: 1 1 auto;
+  }
 
-.spacer{
-    flex: 1 1 auto;
-}
+  .s-admin-btn{
+      background: #ffc94b; 
+      color:black;
+      border-radius: 10px !important;
+  }
 
-.add-btn{
-    background: #e29b65; 
+  .s-admin-btn:hover{
+      background-color: initial;
+      background-position: 0 0;
+      color: black;
+  }
+
+  .sh-admin-btn{
+    background: #f9a66c; 
     color:black;
-}
-.add-btn:hover{
-    background: black; 
-    color:#e29b65;
+    border-radius: 10px !important;
 }
 
-table {
-    width: 100%;
-  }
+  .sh-admin-btn:hover{
+    background-color: initial;
+    background-position: 0 0;
+    color: black;
+}
+
+.v-btn{
+  background: #f17a7e; 
+  color:black;
+  border-radius: 10px !important;
+}
+
+.v-btn:hover{
+  background-color: initial;
+  background-position: 0 0;
+  color: black;
+}
+
+  table {
+      width: 100%;
+    }
   
   .mat-form-field {
     font-size: 14px;
     width: 100%;
   }
 
-  :host {
+  
+  ul li {
+      list-style: none;
+  }
+
+  .user-image {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+  }
+  .user-image-icon {
+      height: 18px;
+      font-size: 16px;
+  }
+  ::ng-deep .mat-menu-content {
+      width: 160px;
+  }
+
+  section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+  }
+  
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
     display: flex;
-    flex-direction: column;
-    height: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
   
-  mat-drawer {
-    width: 260px;
-  }
-  mat-drawer-container {
-    height: 100%;
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
   }
   
-  mat-drawer {
-    background: #00274e !important;
+  .example-spacer {
+    flex: 1 1 auto;
   }
   

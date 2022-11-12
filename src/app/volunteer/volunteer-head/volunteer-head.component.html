@@ -1,14 +1,17 @@
-<mat-toolbar>
-    <mat-toolbar-row class="justify-content-between">
-        <button mat-icon-button (click)="toggleSidebar()">
-            <mat-icon>menu</mat-icon>
-        </button>
+<mat-toolbar style="background: #f17a7e; color: #101212;">
+    <span>SchoolHELP Web System</span>
+    <span class="example-spacer"></span>
+    <section>
+        <div class="example-button-row">
+            <button mat-stroked-button routerLink="/dashboard-volunteer">Dashboard Volunteer</button>
+            <button mat-stroked-button routerLink="/view-requests">View Requests</button>
+            <!-- <button mat-stroked-button routerLink="/login">Logout</button> -->
+        </div>
         <div class="row mr-2 ml-auto">
             <ul class="row m-0 align-items-center">
                 <li>
                     <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center">
                         <img src="./assets/user-placeholder.png" alt="" class="user-image mr-1 p-2" />
-                        <!-- User Name -->
                         <mat-icon class="user-image-icon ml-1"></mat-icon>
                     </button>
                     <mat-menu #menu="matMenu">
@@ -16,7 +19,7 @@
                             <mat-icon>edit</mat-icon>
                             Edit Profile
                         </button>
-                        <button mat-menu-item>
+                        <button mat-menu-item routerLink="/login">
                             <mat-icon>exit_to_app</mat-icon>
                             Logout
                         </button>
@@ -24,6 +27,6 @@
                 </li>
             </ul>
         </div>
-    </mat-toolbar-row>
+      </section>
 </mat-toolbar>
-  
+

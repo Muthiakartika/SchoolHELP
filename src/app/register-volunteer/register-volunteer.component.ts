@@ -35,4 +35,8 @@ export class RegisterVolunteerComponent implements OnInit {
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
+  signUp(){
+    alert('You may login');
+  }
+
 }

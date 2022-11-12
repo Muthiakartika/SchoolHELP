@@ -27,13 +27,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterSchoolComponent } from './schoolhelp-admin/register-school/register-school.component';
 import { RegisterSchoolAdminComponent } from './schoolhelp-admin/register-school-admin/register-school-admin.component';
 import { DashboardSchoolhelpAdminComponent } from './schoolhelp-admin/dashboard-schoolhelp-admin/dashboard-schoolhelp-admin.component';
-import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 import { HeaderComponent } from './header/header.component';
 import { ViewRequestsComponent } from './volunteer/view-requests/view-requests.component';
-import { SubmitOfferComponent } from './volunteer/submit-offer/submit-offer.component';
 import { DashboardVolunteerComponent } from './volunteer/dashboard-volunteer/dashboard-volunteer.component';
 import { DashboardSchoolAdminComponent } from './school-admin/dashboard-school-admin/dashboard-school-admin.component';
-import { SubmitRequestComponent } from './school-admin/submit-request/submit-request.component';
 import { SubmitRequestAssistanceComponent } from './school-admin/submit-request-assistance/submit-request-assistance.component';
 import { SubmitRequestResourceComponent } from './school-admin/submit-request-resource/submit-request-resource.component';
 import { ReviewOffersComponent } from './school-admin/review-offers/review-offers.component';
@@ -45,9 +42,6 @@ import { ReviewOffersDialogComponent } from './school-admin/review-offers/review
 import { AssistanceDialogComponent } from './school-admin/submit-request-assistance/assistance-dialog/assistance-dialog.component';
 import { ResourceDialogComponent } from './school-admin/submit-request-resource/resource-dialog/resource-dialog.component';
 import { SubmitOfferDialogComponent } from './volunteer/view-requests/submit-offer-dialog/submit-offer-dialog.component';
-import { SchoolAdminNavComponent } from './school-admin/school-admin-nav/school-admin-nav.component';
-import { SchoolhelpAdminNavComponent } from './schoolhelp-admin/schoolhelp-admin-nav/schoolhelp-admin-nav.component';
-import { VolunteerNavComponent } from './volunteer/volunteer-nav/volunteer-nav.component';
 import { SchoolAdminHeadComponent } from './school-admin/school-admin-head/school-admin-head.component';
 import { SchoolhelpAdminHeadComponent } from './schoolhelp-admin/schoolhelp-admin-head/schoolhelp-admin-head.component';
 import { VolunteerHeadComponent } from './volunteer/volunteer-head/volunteer-head.component';
@@ -64,13 +58,10 @@ import { ProfileUpdateVolunteerComponent } from './volunteer/edit-profile-volunt
     RegisterSchoolComponent,
     RegisterSchoolAdminComponent,
     DashboardSchoolhelpAdminComponent,
-    SideNavigationComponent,
     HeaderComponent,
     ViewRequestsComponent,
-    SubmitOfferComponent,
     DashboardVolunteerComponent,
     DashboardSchoolAdminComponent,
-    SubmitRequestComponent,
     SubmitRequestAssistanceComponent,
     SubmitRequestResourceComponent,
     ReviewOffersComponent,
@@ -82,9 +73,6 @@ import { ProfileUpdateVolunteerComponent } from './volunteer/edit-profile-volunt
     AssistanceDialogComponent,
     ResourceDialogComponent,
     SubmitOfferDialogComponent,
-    SchoolAdminNavComponent,
-    SchoolhelpAdminNavComponent,
-    VolunteerNavComponent,
     SchoolAdminHeadComponent,
     SchoolhelpAdminHeadComponent,
     VolunteerHeadComponent,

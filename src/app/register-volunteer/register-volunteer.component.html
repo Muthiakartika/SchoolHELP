@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="form-container" style="max-width: 600px;">
     <h1 style="text-align: center; margin-bottom: 30px;">Sign Up to SchoolHELP as Volunteer</h1>
     <form [formGroup]="registerForm">
@@ -41,12 +42,9 @@
             <mat-label>Occupation</mat-label>
             <input formControlName="occupation" matInput>
         </mat-form-field>
-        <a mat-raised-button color="primary" class="btn-block" routerLink="/login">LOGIN</a>
-      
-        <!-- <mat-form-field class="form-full-width">
-            <mat-label>Leave a comment</mat-label>
-            <textarea matInput></textarea>
-        </mat-form-field> -->
+        <button mat-raised-button 
+        style="width: 100%; background: #f9a66c; color: #101212; font-size: 17px; border-radius: 100px;"
+        routerLink="/login" (click)="signUp()">SIGN UP</button>
     </form>
     <div>
         <a routerLink="/login"><p style="text-align: center; padding-top: 20px;">Already have an account? Login!</p></a>
