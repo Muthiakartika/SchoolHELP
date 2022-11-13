@@ -1,25 +1,10 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
-import {MatTable, MatTableDataSource} from '@angular/material/table';
-import { RegisterSchoolAdminDialogComponent } from './register-school-admin-dialog/register-school-admin-dialog.component';
+import { User } from 'src/app/model/user.model';
+import { SchoolAdminService } from 'src/app/service/school-admin/school-admin.service';
 
-export interface SchoolAdminData {
-  id: number;
-  adminFullName: string;
-  adminEmail: string;
-  adminUsername: string;
-  adminPassword: string;
-  adminPhone: string;
-  adminPosition: string;
-  adminSchool: string;
-}
 
-const STATIC_DATA: SchoolAdminData[]=[
-  {id: 1, adminFullName: 'Kiyotaka Ijichi', adminEmail: 'ijichi@hotmail.com', adminUsername: 'ijichi', adminPassword: 'ijichi123' , adminPhone: '+8197-833-0159', adminPosition: 'APA NIH', adminSchool: 'ISI GAK NIH'}
-
-]
 
 @Component({
   selector: 'app-register-school-admin',
@@ -28,35 +13,15 @@ const STATIC_DATA: SchoolAdminData[]=[
 })
 export class RegisterSchoolAdminComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'adminFullName', 'adminEmail', 'adminUsername', 'adminPassword' , 'adminPhone', 'adminPosition', 'adminSchool', 'action'];
-  dataSource!: MatTableDataSource<SchoolAdminData>;
+  displayedColumns: string[] = ['id', 'adminFullName', 'adminEmail', 'adminPhone', 'adminSchool', 'action'];
+  dataAdmin:User[] =[]
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private dialog: MatDialog) { }
-  ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-
+  constructor(private service:SchoolAdminService) { }
+  
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(STATIC_DATA);
+    this.dataAdmin = this.service.show();
   }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-
-  openDialog(){
-    this.dialog.open(RegisterSchoolAdminDialogComponent, {
-      width: "40%"
-    }).afterClosed();
-  }
-
 }

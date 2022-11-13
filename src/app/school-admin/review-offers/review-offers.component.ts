@@ -14,7 +14,8 @@ export interface ReviewOffers {
 }
 
 const STATIC_DATA: ReviewOffers[]=[
-  {id: 1, requestDesc: 'Assistance for Dark Arts subject', requestDate:'12/1/2022', requestStatus: 'Waiting Confirmation'}
+  {id: 1, requestDesc: 'Assistance for Dark Arts subject', requestDate:'12/1/2022', requestStatus: 'Pending'},
+  {id: 2, requestDesc: 'Need a MAC Book Pro 2020', requestDate: '10/12/2022', requestStatus:'Pending'},
 ]
 
 @Component({
@@ -54,12 +55,6 @@ export class ReviewOffersComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-  }
-
-  openDialog(){
-    this.dialog.open(ReviewOffersDialogComponent, {
-      width: "40%"
-    }).afterClosed();
   }
 
 }

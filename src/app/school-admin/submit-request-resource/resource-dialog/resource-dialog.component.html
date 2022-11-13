@@ -1,29 +1,25 @@
-<div>
-    <h1 mat-dialog-title>Submit Request for Resource</h1>
-    <div class="mat-dialog-content">
-        <form [formGroup]="resourceReqForm">
-            <mat-form-field appearance="outline">
-                <mat-label>Description of the Resource</mat-label>
-                <input formControlName="resourceDesc" matInput>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Resource Type</mat-label>
-                <mat-select formControlName="resourceType">
-                    <mat-option value="mobile">Mobile Device</mat-option>
-                    <mat-option value="pc">Personal Computer</mat-option>
-                    <mat-option value="networking">Networking Equipment</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Number of Resource Needed</mat-label>
-                <input formControlName="resourceNumber" matInput>
-            </mat-form-field>
-        </form>
-    </div>
-    <mat-dialog-actions [align]="'end'">
-        <button mat-button mat-dialog-close>Cancel</button>
-        <button mat-flat-button color="primary">Submit Request</button>
-        <!-- <button mat-flat-button color="primary"[mat-dialog-close]="true" cdkFocusInitial>Add School</button> -->
-    </mat-dialog-actions>
+<app-school-admin-head></app-school-admin-head>
+<div class="form-container" style="max-width: 600px;">
+    <h1 style="text-align: center; margin-bottom: 30px;">Submit Request for Resource</h1>
+    <form [formGroup]="resourceReqForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Description of the Resource</mat-label>
+            <input formControlName="resourceDesc" matInput [(ngModel)]="description">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Resource Type</mat-label>
+            <mat-select formControlName="resourceType" [(ngModel)]=" resourceType">
+                <mat-option value="mobile">Mobile Device</mat-option>
+                <mat-option value="pc">Personal Computer</mat-option>
+                <mat-option value="networking">Networking Equipment</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Number of Resource Needed</mat-label>
+            <input formControlName="resourceNumber" matInput [(ngModel)]="numRequired">
+        </mat-form-field>
+        <button mat-flat-button color="accent" style="margin-right: 4px;" routerLink="/submit-request-resource" mat-dialog-close>Cancel</button>
+        <button mat-flat-button color="primary" (click)="createResource()">Submit Request</button>
+    </form>
 </div>
 

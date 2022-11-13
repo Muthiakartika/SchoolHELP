@@ -1,13 +1,14 @@
+<app-header></app-header>
 <div class="form-container" style="max-width: 600px;">
     <h1 style="text-align: center; margin-bottom: 30px;">Sign Up to SchoolHELP as Volunteer</h1>
     <form [formGroup]="registerForm">
         <mat-form-field class="form-full-width">
             <mat-label>Full Name</mat-label>
-            <input matInput formControlName="fullName">
+            <input matInput formControlName="fullName" [(ngModel)]="fullname" >
         </mat-form-field>
         <mat-form-field class="form-full-width">
             <mat-label>Enter your email</mat-label>
-            <input formControlName="email" matInput placeholder="name@example.com" [formControl]="email" required>
+            <input formControlName="email_" matInput placeholder="name@example.com" [formControl]="email" required [(ngModel)]="Email">
             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
         <!-- <mat-form-field class="form-full-width">
@@ -16,11 +17,11 @@
         </mat-form-field> -->
         <mat-form-field class="form-full-width">
             <mat-label>Username</mat-label>
-            <input formControlName="userName" matInput>
+            <input formControlName="userName" matInput [(ngModel)]="username">
         </mat-form-field>
         <mat-form-field class="form-full-width">
             <mat-label>Enter your password</mat-label>
-            <input formControlName="passWord" matInput [type]="hide ? 'password' : 'text'">
+            <input formControlName="passWord" matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
@@ -31,22 +32,19 @@
         </mat-form-field> -->
         <mat-form-field class="form-full-width">
             <mat-label>Phone Number</mat-label>
-            <input formControlName="phoneNumber" matInput>
+            <input formControlName="phoneNumber" matInput [(ngModel)]="phone">
         </mat-form-field>
         <mat-form-field class="form-full-width">
             <mat-label>Date of Birth</mat-label>
-            <input formControlName="birthDate" matInput>
+            <input formControlName="birthDate" matInput [(ngModel)]="dob" type="date">
         </mat-form-field>
         <mat-form-field class="form-full-width">
             <mat-label>Occupation</mat-label>
-            <input formControlName="occupation" matInput>
+            <input formControlName="occup" matInput [(ngModel)]="occupation">
         </mat-form-field>
-        <a mat-raised-button color="primary" class="btn-block" routerLink="/login">LOGIN</a>
-      
-        <!-- <mat-form-field class="form-full-width">
-            <mat-label>Leave a comment</mat-label>
-            <textarea matInput></textarea>
-        </mat-form-field> -->
+        <button mat-raised-button 
+        style="width: 100%; background: #f7878b;  color: #101212; font-size: 17px; border-radius: 100px;"
+        (click)="signUp()">SIGN UP</button>
     </form>
     <div>
         <a routerLink="/login"><p style="text-align: center; padding-top: 20px;">Already have an account? Login!</p></a>

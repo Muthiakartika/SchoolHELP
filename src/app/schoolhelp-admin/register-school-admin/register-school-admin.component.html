@@ -1,3 +1,4 @@
+<app-schoolhelp-admin-head></app-schoolhelp-admin-head>
 <div class="container-fluid page">
   <div class="d-flex page_box p-3 mt-2">Register School Admin</div>
   <div class="page_content shadow p-3 position-relative">
@@ -5,49 +6,45 @@
           <mat-toolbar style="background-color: white;">
               <span>Registered School Admin Table</span>
               <span class="spacer"></span>
-              <button class="add-btn" mat-flat-button aria-label="register admin" (click)="openDialog()">
+              <button class="action-btn" mat-flat-button aria-label="register admin" routerLink="/schoolAdmin-create">
                   <span>Add School Admin</span>
               </button>
           </mat-toolbar>
       </div>
       <div class="table-content">
-          <mat-form-field appearance="standard">
-              <mat-label>Filter</mat-label>
-              <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Ijichi" #input>
-          </mat-form-field>
           <div class="mat-elevation-z2" >
-            <table mat-table [dataSource]="dataSource" matSort>
+            <table mat-table [dataSource]="dataAdmin" matSort>
               <ng-container matColumnDef="id">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
                   <td mat-cell *matCellDef="let row"> {{row.id}} </td>
               </ng-container>
               <ng-container matColumnDef="adminFullName">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </th>
-                  <td mat-cell *matCellDef="let row"> {{row.adminFullName}} </td>
+                  <td mat-cell *matCellDef="let row"> {{row.fullName}} </td>
               </ng-container>
               <ng-container matColumnDef="adminEmail">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </th>
-                  <td mat-cell *matCellDef="let row"> {{row.adminEmail}} </td>
+                  <td mat-cell *matCellDef="let row"> {{row.email}} </td>
               </ng-container>
               <ng-container matColumnDef="adminUsername">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> Username </th>
-                  <td mat-cell *matCellDef="let row"> {{row.adminUsername}} </td>
+                  <td mat-cell *matCellDef="let row"> {{row.username}} </td>
               </ng-container>
               <ng-container matColumnDef="adminPassword">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> Password </th>
-                  <td mat-cell *matCellDef="let row"> {{row.adminPassword}} </td>
+                  <td mat-cell *matCellDef="let row"> {{row.password}} </td>
               </ng-container>
               <ng-container matColumnDef="adminPhone">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone Number </th>
-                  <td mat-cell *matCellDef="let row"> {{row.adminPhone}} </td>
+                  <td mat-cell *matCellDef="let row"> {{row.phone}} </td>
               </ng-container>
               <ng-container matColumnDef="adminPosition">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> Position </th>
-                  <td mat-cell *matCellDef="let row"> {{row.adminPosition}} </td>
+                  <td mat-cell *matCellDef="let row"> {{row.position}} </td>
               </ng-container>
               <ng-container matColumnDef="adminSchool">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> School </th>
-                <td mat-cell *matCellDef="let row"> {{row.adminSchool}} </td>
+                <td mat-cell *matCellDef="let row"> {{row.schoolName}} </td>
             </ng-container>
               <ng-container matColumnDef="action">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
@@ -63,8 +60,8 @@
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
               <tr class="mat-row" *matNoDataRow>
-                  <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-              </tr>
+                <td class="mat-cell" colspan="8" style="text-align: center ;">No Data</td>
+                </tr>
           </table>
               <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
           </div>  

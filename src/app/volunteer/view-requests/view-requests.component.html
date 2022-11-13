@@ -1,3 +1,4 @@
+<app-volunteer-head></app-volunteer-head>
 <div class="container-fluid page">
     <div class="d-flex page_box p-3 mt-2">View Requests</div>
     <div class="page_content shadow p-3 position-relative">
@@ -41,7 +42,7 @@
                     <ng-container matColumnDef="action">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
                         <td mat-cell *matCellDef="let row">
-                            <button class="add-btn" mat-flat-button aria-label="submit-offer" (click)="openDialog()">
+                            <button class="action-btn" mat-flat-button aria-label="submit-offer" (click)="openDialog()">
                                 <span>Apply</span>
                             </button>
                         </td>

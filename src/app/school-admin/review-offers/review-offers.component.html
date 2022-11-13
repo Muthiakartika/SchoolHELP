@@ -1,3 +1,4 @@
+<app-school-admin-head></app-school-admin-head>
 <div class="container-fluid page">
     <div class="d-flex page_box p-3 mt-2">Review Offers</div>
     <div class="page_content shadow p-3 position-relative">
@@ -18,15 +19,15 @@
                         <td mat-cell *matCellDef="let row"> {{row.id}} </td>
                     </ng-container>
                     <ng-container matColumnDef="requestDesc">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> requestDesc </th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Request Description </th>
                         <td mat-cell *matCellDef="let row"> {{row.requestDesc}} </td>
                     </ng-container>
                     <ng-container matColumnDef="requestDate">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> requestDate </th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Request Date </th>
                         <td mat-cell *matCellDef="let row"> {{row.requestDate}} </td>
                     </ng-container>
                     <ng-container matColumnDef="requestStatus">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> requestStatus </th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
                         <td mat-cell *matCellDef="let row"> {{row.requestStatus}} </td>
                     </ng-container>
                     <ng-container matColumnDef="action">
@@ -38,7 +39,7 @@
                             <button mat-icon-button color="warn">
                                 <mat-icon>delete</mat-icon>
                             </button> -->
-                            <button class="add-btn" mat-flat-button aria-label="details" (click)="openDialog()">
+                            <button class="action-btn" mat-flat-button aria-label="details" routerLink="/request-offers">
                                 <span>View Details</span>
                             </button>
                         </td>

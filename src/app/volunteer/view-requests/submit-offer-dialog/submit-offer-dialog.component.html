@@ -1,1 +1,15 @@
-<p>submit-offer-dialog works!</p>
+<div>
+    <h1 mat-dialog-title>Apply Offer</h1>
+    <div class="mat-dialog-content">
+        <form [formGroup]="applyForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Remarks</mat-label>
+                <input formControlName="remarks" matInput [(ngModel)]="remarks">
+            </mat-form-field>
+        </form>
+    </div>
+    <mat-dialog-actions [align]="'end'">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-flat-button color="primary" (click)="submitRequest()">{{actionButton}}</button>
+    </mat-dialog-actions>
+</div>

@@ -1,39 +1,39 @@
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { 
+  height: 100%; 
+}
 
-.btn-block {
-    display: block;
-    width: 100%;
-  }
+body { 
+  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background: #ffffff;
+}
 
-  .form-container {
-    max-width: 500px;
-    margin: 30px auto;
-    overflow: auto;
-    min-height: 300px;
-    border: 1px solid black;
-    padding: 30px;
-    border-radius: 5px;
-    background: white;
-  }
 
+.form-container {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 1px solid black;
+  padding: 30px;
+  border-radius: 5px;
+  background: #ffffff;
+}
 
 .page {
     color: rgb(24, 2, 2);
-    padding: 0 1rem;
-    background: #f6f6f6;
+    padding: 0 16px;
+    background: #ffffff;
 }
 .page_box {
     min-height: 120px;
-    background: #f6f6f6;
-    margin: 0 -1rem;
+    background: #ffffff;
+    margin: 0 -16px;
     font-size: 30px;
 }
 .page_content {
     min-height: calc(100vh - 178px);
     border-radius: 10px;
-    margin-top: -2rem;
-    background: #fefefe;
+    margin-top: -32px;
+    background: #ffffff;
     color: black;
     font-size: 18px;
 }
@@ -46,39 +46,38 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .spacer{
     flex: 1 1 auto;
 }
+/* CSS */
+.action-btn {
+border: 2px solid #f28a88 !important;
+border-radius: 15px !important;
+font-size: 15px;
+color: #f28a88;
+}
 
-.add-btn{
-    background: #e29b65; 
-    color:black;
+.action-btn:hover {
+  color: #fff;
+  background-color: #f28a88;
+  box-shadow: rgba(122, 120, 120, 0.25) 0 8px 15px;
 }
-.add-btn:hover{
-    background: black; 
-    color:#e29b65;
-}
+
+.action-btn-black {
+  border: 2px solid #934846 !important;
+  border-radius: 15px !important;
+  font-size: 15px;
+  color: #934846;
+  }
+  
+  .action-btn-black:hover {
+    color: #fff;
+    background-color: #934846;
+    box-shadow: rgba(122, 120, 120, 0.25) 0 8px 15px;
+  }
 
 table {
     width: 100%;
   }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
 
-  :host {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  
-  mat-drawer {
-    width: 260px;
-  }
-  mat-drawer-container {
-    height: 100%;
-  }
-  
-  mat-drawer {
-    background: #00274e !important;
-  }
-  
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}

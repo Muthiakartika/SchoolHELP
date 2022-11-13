@@ -1,33 +1,33 @@
-<div>
-    <h1 mat-dialog-title>Submit Request for Assistance</h1>
-    <div class="mat-dialog-content">
-        <form [formGroup]="assistanceReqForm">
-            <mat-form-field appearance="outline">
-                <mat-label>Description of the Tutorial Request</mat-label>
-                <input formControlName="requestDesc" matInput>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Purposed Date</mat-label>
-                <input formControlName="requestDate" matInput type="date">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Time of Tutorial</mat-label>
-                <input formControlName="tutorialTime" matInput>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Student Level</mat-label>
-                <input formControlName="studentLevel" matInput>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Number of Student</mat-label>
-                <input formControlName="studentNumber" matInput>
-            </mat-form-field>
-        </form>
-    </div>
-    <mat-dialog-actions [align]="'end'">
-        <button mat-button mat-dialog-close>Cancel</button>
-        <button mat-flat-button color="primary">Submit Request</button>
-        <!-- <button mat-flat-button color="primary"[mat-dialog-close]="true" cdkFocusInitial>Add School</button> -->
-    </mat-dialog-actions>
+<app-school-admin-head></app-school-admin-head>
+<div class="form-container" style="max-width: 600px;">
+    <h1 style="text-align: center; margin-bottom: 30px;">Submit Request for Assistance</h1>
+    <form [formGroup]="assistanceReqForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Description of the Tutorial Request</mat-label>
+            <input formControlName="requestDesc" [(ngModel)]="description" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Purposed Date</mat-label>
+            <input formControlName="requestDate" [(ngModel)]="proposedDate"  matInput type="date">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Time of Tutorial</mat-label>
+            <input formControlName="tutorialTime" [(ngModel)]="time" matInput type="time">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Student Level</mat-label>
+            <select matNativeControl formControlName="studentLevel" required [(ngModel)]="level">
+                <option value="Elementary">Elementary</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+            </select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Number of Student</mat-label>
+            <input formControlName="studentNumber" [(ngModel)]="numStudent" matInput>
+        </mat-form-field>
+        <button mat-flat-button color="accent" style="margin-right: 4px;" routerLink="/submit-request-assistance" mat-dialog-close>Cancel</button>
+        <button mat-flat-button color="primary" (click)="createAssistance()">Submit Request</button>
+    </form>
 </div>
 
