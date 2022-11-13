@@ -3,7 +3,7 @@
   }
   
   body { 
-    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background: #f9faf4;
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background: #ffffff;
   }
 
 
@@ -15,25 +15,25 @@
     border: 1px solid black;
     padding: 30px;
     border-radius: 5px;
-    background: #fcfff0;
+    background: #ffffff;
   }
 
   .page {
       color: rgb(24, 2, 2);
-      padding: 0 1rem;
-      background: #f9faf4;
+      padding: 0 16px;
+      background: #ffffff;
   }
   .page_box {
       min-height: 120px;
-      background: #f9faf4;
-      margin: 0 -1rem;
+      background: #ffffff;
+      margin: 0 -16px;
       font-size: 30px;
   }
   .page_content {
       min-height: calc(100vh - 178px);
       border-radius: 10px;
-      margin-top: -2rem;
-      background: #f9faf4;
+      margin-top: -32px;
+      background: #ffffff;
       color: black;
       font-size: 18px;
   }
@@ -46,42 +46,19 @@
   .spacer{
       flex: 1 1 auto;
   }
+/* CSS */
+.action-btn {
+  border: 2px solid #f28a88 !important;
+  border-radius: 15px !important;
+  font-size: 15px;
+  color: #f28a88;
+}
 
-  .s-admin-btn{
-      background: #ffc94b; 
-      color:black;
-      border-radius: 10px !important;
+  .action-btn:hover {
+    color: #fff;
+    background-color: #f28a88;
+    box-shadow: rgba(122, 120, 120, 0.25) 0 8px 15px;
   }
-
-  .s-admin-btn:hover{
-      background-color: initial;
-      background-position: 0 0;
-      color: black;
-  }
-
-  .sh-admin-btn{
-    background: #f9a66c; 
-    color:black;
-    border-radius: 10px !important;
-}
-
-  .sh-admin-btn:hover{
-    background-color: initial;
-    background-position: 0 0;
-    color: black;
-}
-
-.v-btn{
-  background: #f17a7e; 
-  color:black;
-  border-radius: 10px !important;
-}
-
-.v-btn:hover{
-  background-color: initial;
-  background-position: 0 0;
-  color: black;
-}
 
   table {
       width: 100%;
@@ -91,43 +68,3 @@
     font-size: 14px;
     width: 100%;
   }
-
-  
-  ul li {
-      list-style: none;
-  }
-
-  .user-image {
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-  }
-  .user-image-icon {
-      height: 18px;
-      font-size: 16px;
-  }
-  ::ng-deep .mat-menu-content {
-      width: 160px;
-  }
-
-  section {
-    display: table;
-  }
-  
-  /* .example-label {
-    display: table-cell;
-    font-size: 14px;
-    margin-left: 8px;
-    min-width: 120px;
-  } */
-  
-  .button-row {
-    display: table-cell;
-  }
-  
-  .button-row .mat-button-base {
-    margin: 8px 8px 8px 0;
-  }
-  
- 
-  

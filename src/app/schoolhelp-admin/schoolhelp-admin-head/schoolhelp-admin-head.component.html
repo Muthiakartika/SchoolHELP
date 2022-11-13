@@ -1,12 +1,11 @@
-<mat-toolbar style="background: #f9a66c; color: #101212;">
+<!-- <mat-toolbar style="background: #f9a66c; color: #101212;">
     <span>SchoolHELP Web System</span>
     <span class="spacer"></span>
     <section>
         <div class="button-row">
-            <button mat-stroked-button routerLink="/dashboard-schoolhelp-admin">Dashboard SchoolHELP Admin</button>
+            <button mat-stroked-button routerLink="/dashboard-schoolhelp-admin">Dashboard</button>
             <button mat-stroked-button routerLink="/register-school">Register School</button>
             <button mat-stroked-button routerLink="/register-school-admin">Register School Admin</button>
-            <!-- <button mat-stroked-button routerLink="/login">Logout</button> -->
         </div>
         <div class="row mr-2 ml-auto">
             <ul class="row m-0 align-items-center">
@@ -25,5 +24,19 @@
             </ul>
         </div>
       </section>
-</mat-toolbar>
+</mat-toolbar> -->
 
+<p>
+    <mat-toolbar mat-toolbar style="background: #11476d; color: #f1f6f7;">
+        <button mat-icon-button class="icon" routerLink="/dashboard-schoolhelp-admin">
+            <mat-icon>home</mat-icon>
+        </button>
+        <span>SchoolHELP</span>
+        <span class="spacer"></span>
+        <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/register-school">Register School</button>
+        <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/register-school-admin">Register School Admin</button>
+        <button mat-icon-button class="icon" routerLink="/login">
+            <mat-icon>exit_to_app</mat-icon>
+        </button>
+    </mat-toolbar>
+</p>
