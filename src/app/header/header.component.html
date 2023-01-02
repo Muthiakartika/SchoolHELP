@@ -1,21 +1,49 @@
 <mat-toolbar style="background: #11476d; color: #f1f6f7;">
     <span>SchoolHELP Web System</span>
     <span class="spacer"></span>
-    <section>
-        <div class="button-row">          
-            <div *ngIf="isAuth()">
-                <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/dashboard-schoolhelp-admin">Dashboard SchoolHELP Admin</button>
-                <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/register-school">Register School</button>
-                <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/register-school-admin">Register School Admin</button>
-                <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/dashboard-school-admin">Dashboard School Admin</button>
-                <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/submit-request-assistance">Submit Request Assistance</button>
-                <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/submit-request-resource">Submit Request Resource</button>
-                <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/review-offers">Review Offers</button>
-                <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/dashboard-volunteer">Dashboard Volunteer</button>
-                <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/view-requests">View Requests</button>
-                <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/login">Logout</button>
-            </div>
-        </div>
-      </section>
+    
+    <ul>
+        <li *ngIf="userIsAuthenticated">
+            <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/dashboard-schoolhelp-admin">Dashboard SchoolHELP Admin</button>
+        </li>
+
+        <li *ngIf=" userIsAuthenticated ">
+            <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/register-school">Register School</button>
+        </li>
+
+        <li *ngIf="userIsAuthenticated">
+            <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/register-school-admin">Register School Admin</button>
+        </li>
+
+        <li *ngIf="userIsAuthenticated ">
+            <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/dashboard-school-admin">Dashboard School Admin</button>
+        </li>
+
+        <li *ngIf="userIsAuthenticated ">
+            <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/submit-request-assistance">Submit Request Assistance</button>
+        </li>
+
+        <li *ngIf="userIsAuthenticated ">
+            <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/submit-request-resource">Submit Request Resource</button>
+        </li>
+
+        <li *ngIf="userIsAuthenticated ">
+            <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/review-offers">Review Offers</button>
+        </li>
+
+        <li *ngIf="userIsAuthenticated ">
+            <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/dashboard-volunteer">Dashboard Volunteer</button>
+        </li>
+
+        <li *ngIf="userIsAuthenticated ">
+            <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/view-requests">View Requests</button>
+        </li>
+
+        <li *ngIf="userIsAuthenticated">
+            <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" mat-icon-button class="icon" (click)="onLogout()">
+                <mat-icon>exit_to_app</mat-icon>
+            </button>
+        </li>
+    </ul>
 </mat-toolbar>
 

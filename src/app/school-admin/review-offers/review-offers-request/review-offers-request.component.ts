@@ -14,8 +14,11 @@ export interface ReviewOffers {
   occupation: string;
 }
 
+/**
+ * creating static data to be shown inthe table
+ */
 const STATIC_DATA: ReviewOffers[]=[
-  {no:1, date: '10-12-2022', remarks: 'Pokoknya bagus', name: 'Edogawa Conan', age:'22', occupation:'Student'}
+  {no:1, date: '12/12/2022', remarks: 'I am a certified Python instructor', name: 'Zara Athifa', age:'22', occupation:'Python lecturer'}
 ]
 
 

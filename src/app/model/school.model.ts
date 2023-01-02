@@ -1,5 +1,9 @@
+/**
+ * This is the school model for 
+ * assigning new variable
+ */
 export class School{
-    schoolID: number;
+    id: number;
     schoolName: string;
     address: string;
     city: string;

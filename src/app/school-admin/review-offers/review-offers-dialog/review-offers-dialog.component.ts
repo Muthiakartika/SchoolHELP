@@ -11,8 +11,11 @@ export interface ReviewOffers {
   listOffer: string;
 }
 
+/**
+ * creating static data to be shown inthe table
+ */
 const STATIC_DATA: ReviewOffers[]=[
-  {no: 1, requestDesc: 'Pokoknya bagus', listOffer: 'PC High Level Entry'}
+  {no: 1, requestDesc: 'I am a certified Python instructor', listOffer: 'Assistance in Python'}
 ]
 
 @Component({
@@ -55,5 +58,3 @@ export class ReviewOffersDialogComponent implements AfterViewInit {
   }
 
 }
-
-// nama request, tanggal, status

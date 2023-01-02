@@ -1,51 +1,64 @@
 <app-header></app-header>
+
 <div class="form-container" style="max-width: 600px;">
     <h1 style="text-align: center; margin-bottom: 30px;">Sign Up to SchoolHELP as Volunteer</h1>
-    <form [formGroup]="registerForm">
-        <mat-form-field class="form-full-width">
-            <mat-label>Full Name</mat-label>
-            <input matInput formControlName="fullName" [(ngModel)]="fullname" >
-        </mat-form-field>
-        <mat-form-field class="form-full-width">
-            <mat-label>Enter your email</mat-label>
-            <input formControlName="email_" matInput placeholder="name@example.com" [formControl]="email" required [(ngModel)]="Email">
-            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-        </mat-form-field>
-        <!-- <mat-form-field class="form-full-width">
-            <mat-label>E-Mail</mat-label>
-            <input matInput type="text">
-        </mat-form-field> -->
-        <mat-form-field class="form-full-width">
-            <mat-label>Username</mat-label>
-            <input formControlName="userName" matInput [(ngModel)]="username">
-        </mat-form-field>
-        <mat-form-field class="form-full-width">
-            <mat-label>Enter your password</mat-label>
-            <input formControlName="passWord" matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-        </mat-form-field>
-        <!-- <mat-form-field class="form-full-width">
-            <mat-label>Password</mat-label>
-            <input matInput type="password" placeholder="Use 6 or more character">
-        </mat-form-field> -->
-        <mat-form-field class="form-full-width">
-            <mat-label>Phone Number</mat-label>
-            <input formControlName="phoneNumber" matInput [(ngModel)]="phone">
-        </mat-form-field>
-        <mat-form-field class="form-full-width">
-            <mat-label>Date of Birth</mat-label>
-            <input formControlName="birthDate" matInput [(ngModel)]="dob" type="date">
-        </mat-form-field>
-        <mat-form-field class="form-full-width">
-            <mat-label>Occupation</mat-label>
-            <input formControlName="occup" matInput [(ngModel)]="occupation">
-        </mat-form-field>
-        <button mat-raised-button 
-        style="width: 100%; background: #f7878b;  color: #101212; font-size: 17px; border-radius: 100px;"
-        (click)="signUp()">SIGN UP</button>
-    </form>
+    <mat-card>
+        <form (submit)="signUp(signupForm)" #signupForm="ngForm">
+
+            <mat-form-field class="form-full-width">
+                <mat-label>Full Name</mat-label>
+                <input matInput name="fullname" type="text" placeholder="Full Name"
+                    #fullnameInput="ngModel" ngModel required>
+                <mat-error *ngIf="fullnameInput.invalid">Please input the full name</mat-error>    
+            </mat-form-field>
+
+            <mat-form-field class="form-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput name="email" type="email" placeholder="name@example.com" #emailInput="ngModel" ngModel required >
+                <mat-error *ngIf="emailInput.invalid">Please input valid email</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-full-width">
+                <mat-label>Username</mat-label>
+                <input matInput type="text" placeholder="Username" name="username" #usernameInput="ngModel" ngModel required>
+                <mat-error *ngIf="usernameInput.invalid">Please input the username</mat-error>  
+            </mat-form-field>
+
+            <mat-form-field class="form-full-width">
+                <mat-label>Password</mat-label>
+                <input name="password" matInput type="password" [type]="hide ? 'password' : 'text'" 
+                placeholder="Password" #passwordInput="ngModel" ngModel required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="passwordInput.invalid">Please enter valid password</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-full-width">
+                <mat-label>Phone Number</mat-label>
+                <input matInput type="number" placeholder="Phone Number" name="phone" #phoneInput="ngModel" ngModel required>
+                <mat-error *ngIf="phoneInput.invalid">Please enter the phone number</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-full-width">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput name="dob" type="date" placeholder="Date of Birth" #dobInput="ngModel" ngModel required>
+                <mat-error *ngIf="dobInput.invalid">Please enter the Date of Birth</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-full-width">
+                <mat-label>Occupation</mat-label>
+                <input matInput name="occupation" type="text" placeholder="Occupation" #occupationInput="ngModel" ngModel required>
+                <mat-error *ngIf="occupationInput.invalid">Please enter the occupation</mat-error>
+            </mat-form-field>
+
+            <input name="role" type="text" placeholder="Role" ngModel="volunteer" hidden>
+          
+            <button mat-raised-button 
+            style="width: 100%; background: #f7878b;  color: #101212; font-size: 17px; border-radius: 100px;"
+            type="submit">SIGN UP</button> <!--Using signUp() function-->
+        </form>
+    </mat-card>
     <div>
         <a routerLink="/login"><p style="text-align: center; padding-top: 20px;">Already have an account? Login!</p></a>
     </div>

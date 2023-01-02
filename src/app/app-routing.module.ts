@@ -23,6 +23,7 @@ import { ChangePasswordVolunteerComponent } from './volunteer/edit-profile-volun
 import { EditProfileVolunteerComponent } from './volunteer/edit-profile-volunteer/edit-profile-volunteer.component';
 import { ProfileUpdateVolunteerComponent } from './volunteer/edit-profile-volunteer/profile-update-volunteer/profile-update-volunteer.component';
 import { ViewRequestsComponent } from './volunteer/view-requests/view-requests.component';
+import { SubmitOfferDialogComponent } from './volunteer/view-requests/submit-offer-dialog/submit-offer-dialog.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -52,6 +53,7 @@ const routes: Routes = [
   {path: 'register-volunteer', component: RegisterVolunteerComponent},
   {path: 'dashboard-volunteer', component: DashboardVolunteerComponent},
   {path: 'view-requests', component: ViewRequestsComponent},
+  {path: 'submit-offer/:requestId', component: SubmitOfferDialogComponent},
   {path: 'edit-profile-volunteer', component: EditProfileVolunteerComponent},
   {path: 'profile-update-volunteer', component: ProfileUpdateVolunteerComponent},
   {path: 'change-password-volunteer', component: ChangePasswordVolunteerComponent},

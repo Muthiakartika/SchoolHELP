@@ -1,25 +1,43 @@
 <app-school-admin-head></app-school-admin-head>
 <div class="form-container" style="max-width: 600px;">
     <h1 style="text-align: center; margin-bottom: 30px;">Submit Request for Resource</h1>
-    <form [formGroup]="resourceReqForm">
+    <form (submit)="createResource(resourceForm)" #resourceForm="ngForm">
+        <input type="text" name="type" ngModel="resource" hidden >
+
+        <mat-form-field appearance="outline">
+            <mat-label>Request Date</mat-label>
+            <input matInput type="date" name="date" #requestDateInput="ngModel" ngModel required>
+            <mat-error *ngIf="requestDateInput.invalid">Request date is required</mat-error>
+        </mat-form-field>
+
         <mat-form-field appearance="outline">
             <mat-label>Description of the Resource</mat-label>
-            <input formControlName="resourceDesc" matInput [(ngModel)]="description">
+            <input matInput type="text" name="description" #descriptionInput="ngModel" ngModel required>
+            <mat-error *ngIf="descriptionInput.invalid">Description is required</mat-error>
         </mat-form-field>
+
         <mat-form-field appearance="outline">
             <mat-label>Resource Type</mat-label>
-            <mat-select formControlName="resourceType" [(ngModel)]=" resourceType">
+            <mat-select name="resourceType" #resourceTypeInput="ngModel" ngModel required>
                 <mat-option value="mobile">Mobile Device</mat-option>
                 <mat-option value="pc">Personal Computer</mat-option>
                 <mat-option value="networking">Networking Equipment</mat-option>
             </mat-select>
+            <mat-error *ngIf="resourceTypeInput.invalid">Resource type is required</mat-error>
         </mat-form-field>
+
         <mat-form-field appearance="outline">
             <mat-label>Number of Resource Needed</mat-label>
-            <input formControlName="resourceNumber" matInput [(ngModel)]="numRequired">
+            <input matInput name="numRequired" type="number" #numRequiredInput="ngModel" ngModel required>
+            <mat-error *ngIf="numRequiredInput.invalid">Number of Resource is required</mat-error>
         </mat-form-field>
+
+        <input matInput name="school" type="text" required value="{{user.schoolName}}" ngModel={{user.schoolName}} hidden>
+        <input matInput name="schoolCity" type="text" required value="{{user.schoolCity}}" ngModel={{user.schoolCity}} hidden>
+    
+
         <button mat-flat-button color="accent" style="margin-right: 4px;" routerLink="/submit-request-resource" mat-dialog-close>Cancel</button>
-        <button mat-flat-button color="primary" (click)="createResource()">Submit Request</button>
+        <button mat-flat-button color="primary" type="submit">Submit Request</button> <!--using createResource() function-->
     </form>
 </div>
 

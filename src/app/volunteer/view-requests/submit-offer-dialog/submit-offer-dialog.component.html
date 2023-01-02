@@ -1,15 +1,23 @@
-<div>
-    <h1 mat-dialog-title>Apply Offer</h1>
-    <div class="mat-dialog-content">
-        <form [formGroup]="applyForm">
+<app-volunteer-head></app-volunteer-head>
+
+<div class="form-container" style="max-width: 600px;">
+    <h1 style="text-align: center; margin-bottom: 30px;">Apply Offer</h1>
+    <form (submit)="submitRequest(requestForm)" #requestForm="ngForm"> <!--calling createSchool() function-->
             <mat-form-field appearance="outline">
                 <mat-label>Remarks</mat-label>
-                <input formControlName="remarks" matInput [(ngModel)]="remarks">
+                <input name="remarks" type="text" matInput  #remarksInput="ngModel" ngModel required>
+                <mat-error *ngIf="remarksInput.invalid">Remarks is required</mat-error>
             </mat-form-field>
+
+          
+            <input name="status" type="text" matInput value="pending" ngModel="pending" required hidden>
+        
+            <input name="fullname" type="text" matInput value="{{user.fullname}}" ngModel={{user.fullname}} required hidden>
+            
+           
+            <button mat-flat-button color="accent" style="margin-right: 4px;" mat-dialog-close routerLink="/view-requests">Cancel</button>
+            <button mat-flat-button color="primary" type="submit">{{actionButton}}</button>        
         </form>
-    </div>
-    <mat-dialog-actions [align]="'end'">
-        <button mat-button mat-dialog-close>Cancel</button>
-        <button mat-flat-button color="primary" (click)="submitRequest()">{{actionButton}}</button>
-    </mat-dialog-actions>
+    
+    
 </div>

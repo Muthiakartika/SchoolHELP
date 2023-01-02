@@ -1,3 +1,11 @@
+/**
+ * This is the school model for 
+ * assigning new variable
+ */
 export class Request{
-    remarks: string;
+    date: String;
+    remarks: String;
+    status : String;
+    fullname: String;
+    requestDesc:  String;
 }

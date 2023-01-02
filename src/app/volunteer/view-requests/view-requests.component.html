@@ -11,38 +11,34 @@
         <div class="table-content">
             <mat-form-field appearance="standard">
                 <mat-label>Filter</mat-label>
-                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Stikom" #input>
+                <input matInput  placeholder="Ex. Stikom" #input>
             </mat-form-field>
             <div class="mat-elevation-z2" >
-                <table mat-table [dataSource]="dataSource" matSort>
-                    <ng-container matColumnDef="id">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-                        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
-                    </ng-container>
+                <table mat-table [dataSource]="requests" matSort>
                     <ng-container matColumnDef="status">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
                         <td mat-cell *matCellDef="let row"> {{row.status}} </td>
                     </ng-container>
                     <ng-container matColumnDef="requestDesc">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> Resource Description </th>
-                        <td mat-cell *matCellDef="let row"> {{row.requestDesc}} </td>
+                        <td mat-cell *matCellDef="let row"> {{row.description}} </td>
                     </ng-container>
                     <ng-container matColumnDef="requestDate">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> Request Date </th>
-                        <td mat-cell *matCellDef="let row"> {{row.requestDate}} </td>
+                        <td mat-cell *matCellDef="let row"> {{row.date}} </td>
                     </ng-container>
                     <ng-container matColumnDef="schoolName">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> schoolName </th>
-                        <td mat-cell *matCellDef="let row"> {{row.schoolName}} </td>
+                        <td mat-cell *matCellDef="let row"> {{row.school}} </td>
                     </ng-container>
                     <ng-container matColumnDef="schoolCity">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> schoolCity </th>
-                        <td mat-cell *matCellDef="let row"> {{row.schoolCity}} </td>
+                        <td mat-cell *matCellDef="let row" > {{row.schoolCity}} </td>
                     </ng-container>
                     <ng-container matColumnDef="action">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
                         <td mat-cell *matCellDef="let row">
-                            <button class="action-btn" mat-flat-button aria-label="submit-offer" (click)="openDialog()">
+                            <button class="action-btn" mat-flat-button aria-label="submit-offer" [routerLink]="['/submit-offer/:requestId']">
                                 <span>Apply</span>
                             </button>
                         </td>
@@ -50,7 +46,7 @@
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                     <tr class="mat-row" *matNoDataRow>
-                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                        <td class="mat-cell" colspan="8" style="text-align: center ;">No Data</td>
                     </tr>
                 </table>
                 <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>

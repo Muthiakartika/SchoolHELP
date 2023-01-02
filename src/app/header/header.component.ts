@@ -1,5 +1,9 @@
 import { Component, OnInit} from '@angular/core';
-import { AuthService } from '../service/auth/auth.service';
+import { AuthService } from '../service/auth/auth.service'; // calling Auth service
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import { User } from '../model/user.model';
+import { UserVolunteer } from '../model/userVolunteer.model';
 
 @Component({
   selector: 'app-header',
@@ -8,23 +12,23 @@ import { AuthService } from '../service/auth/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private auth:AuthService) {}
+  userIsAuthenticated = false;
+  private authListenerSubs: Subscription;
+  
+  constructor(private auth:AuthService, private router:Router) {}
 
-  ngOnInit(): void {}
-
-  isAuth(){
-    return this.auth.isAuth;
+  ngOnInit(): void {
+    this.authListenerSubs = this.auth.
+    getAuthStatusListener().subscribe(isAuthenticated =>{
+      this.userIsAuthenticated = isAuthenticated;
+    });
   }
 
-  hAdmin(){
-    return this.auth.hAdmin;
-  }
+  // userRole(){
+  //   return this.auth.user.role;
+  // }
 
-  admin(){
-    return this.auth.admin;
-  }
-
-  volunteer(){
-    return this.auth.volunteer;
+  onLogout(){
+    this.auth.logout;
   }
 }
