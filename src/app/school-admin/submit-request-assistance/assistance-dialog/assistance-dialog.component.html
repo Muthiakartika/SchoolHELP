@@ -1,33 +1,58 @@
-<div>
-    <h1 mat-dialog-title>Submit Request for Assistance</h1>
-    <div class="mat-dialog-content">
-        <form [formGroup]="assistanceReqForm">
+<app-school-admin-head></app-school-admin-head>
+<div class="form-container" style="max-width: 600px;">
+    <h1 style="text-align: center; margin-bottom: 30px;">Submit Request for Assistance</h1>
+    <mat-card>
+        <form (submit)="createAssistance(resourceCreate)" #resourceCreate="ngForm">
+            <input name="type" ngModel="assistance" hidden>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Request Date</mat-label>
+                <input matInput type="date" name="date" #requestDateInput="ngModel" ngModel required>
+                <mat-error *ngIf="requestDateInput.invalid">Request date is required</mat-error>
+            </mat-form-field>
+            
             <mat-form-field appearance="outline">
                 <mat-label>Description of the Tutorial Request</mat-label>
-                <input formControlName="requestDesc" matInput>
+                <input name="description" matInput type="text"
+                #descriptionInput="ngModel" ngModel required>
+                <mat-error *ngIf="descriptionInput.invalid">Please input the description</mat-error> 
             </mat-form-field>
+    
             <mat-form-field appearance="outline">
                 <mat-label>Purposed Date</mat-label>
-                <input formControlName="requestDate" matInput type="date">
+                <input name="proposedDate"  matInput #dateInput="ngModel" ngModel required type="date"
+                 required>
+                <mat-error *ngIf="dateInput.invalid">Please input the proposed date</mat-error> 
             </mat-form-field>
+    
             <mat-form-field appearance="outline">
                 <mat-label>Time of Tutorial</mat-label>
-                <input formControlName="tutorialTime" matInput>
+                <input name="time" matInput #timeInput="ngModel" ngModel required type="number">
+                <mat-error *ngIf="timeInput.invalid">Please input the time</mat-error>
             </mat-form-field>
+    
             <mat-form-field appearance="outline">
                 <mat-label>Student Level</mat-label>
-                <input formControlName="studentLevel" matInput>
+                <select matNativeControl name="level" matInput #levelInput="ngModel" ngModel required>
+                    <option value="Elementary">Elementary</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                </select>
+                <mat-error *ngIf="levelInput.invalid">Please input the level</mat-error>
             </mat-form-field>
+    
             <mat-form-field appearance="outline">
                 <mat-label>Number of Student</mat-label>
-                <input formControlName="studentNumber" matInput>
+                <input name="numStudent" matInput type="number" #studentInput="ngModel" ngModel required>
+                <mat-error *ngIf="studentInput.invalid">Please input the level</mat-error>
             </mat-form-field>
+
+            <input matInput name="school" type="text" required value="{{user.schoolName}}" ngModel={{user.schoolName}} hidden>
+            <input matInput name="schoolCity" type="text" required value="{{user.schoolCity}}" ngModel={{user.schoolCity}} hidden>
+        
+            <button mat-flat-button color="accent" style="margin-right: 4px;" routerLink="/submit-request-assistance" mat-dialog-close>Cancel</button>
+            <button mat-flat-button color="primary" type="submit">Submit Request</button>
         </form>
-    </div>
-    <mat-dialog-actions [align]="'end'">
-        <button mat-button mat-dialog-close>Cancel</button>
-        <button mat-flat-button color="primary">Submit Request</button>
-        <!-- <button mat-flat-button color="primary"[mat-dialog-close]="true" cdkFocusInitial>Add School</button> -->
-    </mat-dialog-actions>
+    </mat-card>
 </div>
 

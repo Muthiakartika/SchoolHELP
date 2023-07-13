@@ -1,21 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { ResourceDialogComponent } from './resource-dialog/resource-dialog.component';
-
-export interface RequestResource {
-  id: number;
-  status: string;
-  resourceDesc: string;
-  resourceType: string;
-  resourceNumber: string;
-}
-
-const STATIC_DATA: RequestResource[]= [
-  {id: 1, status: 'New',resourceDesc: 'PC', resourceType: 'PC', resourceNumber: '100'}
-]
+import { Subscription } from 'rxjs';
+import { Resource } from 'src/app/model/resource.model'; // calling Rosource model
+import { ResourceService } from 'src/app/service/request/resource.service'; // calling Resource service
 
 @Component({
   selector: 'app-submit-request-resource',
@@ -24,35 +10,19 @@ const STATIC_DATA: RequestResource[]= [
 })
 export class SubmitRequestResourceComponent implements OnInit {
 
-  displayedColumnsResource: string[] = ['id', 'status', 'resourceDesc', 'resourceType', 'resourceNumber', 'action'];
-  dataSourceResource!: MatTableDataSource<RequestResource>;
+  displayedColumnsResource: string[] = ['status', 'requestDate', 'resourceDesc',
+   'resourceType', 'resourceNumber'];
+  resourceReq:Resource[] = [] // new array variable for taking data from Resource model
+  private assistanceSub: Subscription | undefined;
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-
-  constructor(private dialog: MatDialog) { }
-  ngAfterViewInit(): void {
-    this.dataSourceResource.paginator = this.paginator;
-    this.dataSourceResource.sort = this.sort;
-  }
-
+  constructor(private service:ResourceService) { }
+  
   ngOnInit(): void {
-    this.dataSourceResource = new MatTableDataSource(STATIC_DATA);
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSourceResource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSourceResource.paginator) {
-      this.dataSourceResource.paginator.firstPage();
-    }
-  }
-
-  openDialog(){
-    this.dialog.open(ResourceDialogComponent, {
-      width: "40%"
-    }).afterClosed();
+    this.service.show(); // calling the show funtion in service and show it in the table
+    this.assistanceSub = this.service.getResourceUpdateListener()
+    .subscribe((resource: Resource[])=>{
+      this.resourceReq = resource;
+    })
   }
 
 }

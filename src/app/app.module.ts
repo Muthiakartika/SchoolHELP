@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -13,7 +15,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
-import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -49,8 +50,10 @@ import { EditProfileVolunteerComponent } from './volunteer/edit-profile-voluntee
 import { EditProfileSchoolAdminComponent } from './school-admin/edit-profile-school-admin/edit-profile-school-admin.component';
 import { ProfileUpdateComponent } from './school-admin/edit-profile-school-admin/profile-update/profile-update.component';
 import { ChangePasswordComponent } from './school-admin/edit-profile-school-admin/change-password/change-password.component';
+import { ReviewOffersRequestComponent } from './school-admin/review-offers/review-offers-request/review-offers-request.component';
 import { ChangePasswordVolunteerComponent } from './volunteer/edit-profile-volunteer/change-password-volunteer/change-password-volunteer.component';
 import { ProfileUpdateVolunteerComponent } from './volunteer/edit-profile-volunteer/profile-update-volunteer/profile-update-volunteer.component';
+import { AuthInterceptor } from './helper/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -81,7 +84,8 @@ import { ProfileUpdateVolunteerComponent } from './volunteer/edit-profile-volunt
     ProfileUpdateComponent,
     ChangePasswordComponent,
     ChangePasswordVolunteerComponent,
-    ProfileUpdateVolunteerComponent
+    ProfileUpdateVolunteerComponent,
+    ReviewOffersRequestComponent
   ],
   imports: [
     BrowserModule,
@@ -108,7 +112,7 @@ import { ProfileUpdateVolunteerComponent } from './volunteer/edit-profile-volunt
     MatSelectModule,
     MatExpansionModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

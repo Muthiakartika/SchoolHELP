@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, NgForm } from '@angular/forms';
+import { AuthService } from '../service/auth/auth.service'; // calling Auth service 
+import { Router } from '@angular/router'; // calling Router modul
+import { UserVolunteer } from '../model/userVolunteer.model'; // calling UserVolunteer model
 
 @Component({
   selector: 'app-register-volunteer',
@@ -11,32 +14,31 @@ export class RegisterVolunteerComponent implements OnInit {
   hide = true;
   public registerForm: FormGroup;
 
-  email = new FormControl('', [Validators.required, Validators.email]);
+  user:UserVolunteer[] = [] // creating boolean variable for storing data
+  
+  constructor(private router:Router, private service:AuthService) { }
 
-  constructor(private formBuilder: FormBuilder) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-    this.registerForm = this.formBuilder.group({
-      fullName: ['', Validators.required],
-      email: ['', Validators.required, Validators.email],
-      userName: ['', Validators.required],
-      passWord: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
-      birthDate: ['', Validators.required],
-      occupation: ['', Validators.required]
-    })
-  }
-
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
+  /**
+   * this function is used for calling register function in AuthService 
+   * and redirect the user into their dashboard page
+   */
+  signUp(form: NgForm){
+    if(form.invalid){
+      return;
     }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
-
-  signUp(){
-    alert('You may login');
+    this.service.register(
+        form.value.username,
+        form.value.password,
+        form.value.fullname,
+        form.value.email,
+        form.value.phone,
+        form.value.dob,
+        form.value.occupation,
+        form.value.role
+    );
+    this.router.navigate(['/login'])
   }
 
 }

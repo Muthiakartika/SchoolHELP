@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-schoolhelp-admin-head',
@@ -10,8 +9,8 @@ export class SchoolhelpAdminHeadComponent implements OnInit {
 
   @Output() toggleSidebarForMe: EventEmitter<any> = new EventEmitter();
 
-  constructor(private router: Router) {}
-
+  constructor() {}
+   
   ngOnInit(): void {}
 
   toggleSidebar() {

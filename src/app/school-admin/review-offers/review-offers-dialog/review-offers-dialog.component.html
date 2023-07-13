@@ -1,1 +1,47 @@
-<p>review-offers-dialog works!</p>
+<app-school-admin-head></app-school-admin-head>
+<div class="container-fluid page">
+    <div class="d-flex page_box p-3 mt-2">Request Detail</div>
+    <div class="page_content shadow p-3 position-relative">
+        <div class="section-title">
+            <mat-toolbar style="background-color: white;">
+                <span>Request Data Table</span>
+            </mat-toolbar>
+        </div>
+        <div class="table-content">
+            <mat-form-field appearance="standard">
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Dark arts" #input>
+            </mat-form-field>
+            <div class="mat-elevation-z2" >
+                <table mat-table [dataSource]="dataSource" matSort>
+                    <ng-container matColumnDef="no">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+                        <td mat-cell *matCellDef="let row"> {{row.no}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="desc">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+                        <td mat-cell *matCellDef="let row"> {{row.requestDesc}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="listOffer">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Offer Name </th>
+                        <td mat-cell *matCellDef="let row"> {{row.listOffer}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                        <td mat-cell *matCellDef="let row">
+                            <button class="action-btn" mat-flat-button aria-label="details" routerLink="/review-offers-request">
+                                <span>View Volunteer Details</span>
+                            </button>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+            </div>  
+        </div>
+    </div>
+</div>

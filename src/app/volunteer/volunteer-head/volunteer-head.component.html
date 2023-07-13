@@ -1,16 +1,16 @@
-<p>
-    <mat-toolbar mat-toolbar style="background: #11476d; color: #f1f6f7;">
-        <button mat-icon-button class="icon" routerLink="/dashboard-volunteer">
-            <mat-icon>home</mat-icon>
-        </button>
-        <span>SchoolHELP</span>
-        <span class="spacer"></span>
-        <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/view-requests">View Requests</button>
-        <button mat-icon-button class="icon" routerLink="/edit-profile-volunteer">
-            <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button class="icon" routerLink="/login">
-            <mat-icon>exit_to_app</mat-icon>
-        </button>
-    </mat-toolbar>
-</p>
+
+<mat-toolbar mat-toolbar style="background: #11476d; color: #f1f6f7;">
+    <button mat-icon-button class="icon" routerLink="/dashboard-volunteer">
+        <mat-icon>home</mat-icon>
+    </button>
+    <span>SchoolHELP</span>
+    <span class="spacer"></span>
+    <button mat-stroked-button style="background: #f1f6f7; color: #11476d;" routerLink="/view-requests">View Requests</button>
+    <button mat-icon-button class="icon" routerLink="/edit-profile-volunteer">
+        <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button class="icon" (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+    </button>
+</mat-toolbar>
+

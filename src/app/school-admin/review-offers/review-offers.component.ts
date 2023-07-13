@@ -4,7 +4,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTable, MatTableDataSource} from '@angular/material/table';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import { ReviewOffersDialogComponent } from './review-offers-dialog/review-offers-dialog.component';
+
 
 export interface ReviewOffers {
   id: number;
@@ -13,8 +13,12 @@ export interface ReviewOffers {
   requestStatus: string;
 }
 
+/**
+ * creating static data to be shown inthe table
+ */
 const STATIC_DATA: ReviewOffers[]=[
-  {id: 1, requestDesc: 'Assistance for Dark Arts subject', requestDate:'12/1/2022', requestStatus: 'Waiting Confirmation'}
+  {id: 1, requestDesc: 'Assistance in Python', requestDate:'12/12/2022', requestStatus: 'Pending'},
+  {id: 2, requestDesc: 'Assistance in C++', requestDate:'1/1/2023', requestStatus: 'Pending'},
 ]
 
 @Component({
@@ -56,12 +60,4 @@ export class ReviewOffersComponent implements OnInit {
     }
   }
 
-  openDialog(){
-    this.dialog.open(ReviewOffersDialogComponent, {
-      width: "40%"
-    }).afterClosed();
-  }
-
 }
-
-// nama request, tanggal, status

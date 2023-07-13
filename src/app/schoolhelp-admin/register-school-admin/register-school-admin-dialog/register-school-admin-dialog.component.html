@@ -1,44 +1,72 @@
-<div>
-    <h1 mat-dialog-title>Register New School Admin</h1>
-    <div class="mat-dialog-content">
-        <form [formGroup]="adminForm">
-            <mat-form-field appearance="outline">
+<app-schoolhelp-admin-head></app-schoolhelp-admin-head>
+<div class="form-container" style="max-width: 600px;">
+    <h1 style="text-align: center; margin-bottom: 30px;">Register New School Admin</h1>
+    <mat-card>
+        <form (submit)="addSchoolAdmin(adminCreate)" #adminCreate="ngForm">
+        
+            <mat-form-field class="form-full-width">
                 <mat-label>Full Name</mat-label>
-                <input formControlName="adminFullName" matInput type="text">
+                <input matInput name="fullname" type="text" placeholder="Full Name"
+                    #fullnameInput="ngModel" ngModel required>
+                <mat-error *ngIf="fullnameInput.invalid">Please input the full name</mat-error>    
             </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Enter your email</mat-label>
-                <input formControlName="adminEmail" matInput placeholder="name@example.com" type="text">
+
+            <mat-form-field class="form-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput name="email" type="email" placeholder="name@example.com" #emailInput="ngModel" ngModel required >
+                <mat-error *ngIf="emailInput.invalid">Please input valid email</mat-error>
             </mat-form-field>
-            <mat-form-field appearance="outline">
+
+            <mat-form-field class="form-full-width">
                 <mat-label>Username</mat-label>
-                <input formControlName="adminUsername" matInput type="text">
+                <input matInput type="text" placeholder="Username" name="username" #usernameInput="ngModel" ngModel required>
+                <mat-error *ngIf="usernameInput.invalid">Please input the username</mat-error>  
             </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Enter your password</mat-label>
-                <input formControlName="adminPassword" matInput [type]="hide ? 'password' : 'text'">
+
+            <mat-form-field class="form-full-width">
+                <mat-label>Password</mat-label>
+                <input name="password" matInput type="password" [type]="hide ? 'password' : 'text'" 
+                placeholder="Password" #passwordInput="ngModel" ngModel required>
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+                <mat-error *ngIf="passwordInput.invalid">Please enter valid password</mat-error>
             </mat-form-field>
-            <mat-form-field appearance="outline">
+
+            <mat-form-field class="form-full-width">
+                <mat-label>Staff ID</mat-label>
+                <input matInput type="number" placeholder="Staff ID" name="phone" #idInput="ngModel" ngModel required>
+                <mat-error *ngIf="idInput.invalid">Staff ID is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-full-width">
                 <mat-label>Phone Number</mat-label>
-                <input formControlName="adminPhone" matInput type="text">
+                <input matInput type="number" placeholder="Phone Number" name="phone" #phoneInput="ngModel" ngModel required>
+                <mat-error *ngIf="phoneInput.invalid">Please enter the phone number</mat-error>
             </mat-form-field>
+
             <mat-form-field appearance="outline">
                 <mat-label>Position</mat-label>
-                <input formControlName="adminPosition" matInput type="text">
+                <input  matInput type="text" name="position" #positionInput="ngModel" ngModel required>
+                <mat-error *ngIf="positionInput.invalid">Position is required</mat-error>
             </mat-form-field>
+
             <mat-form-field appearance="outline">
                 <mat-label>School Name</mat-label>
-                <input formControlName="adminSchool" matInput type="text">
+                <select matNativeControl required name="schoolName" #schoolNameInput="ngModel" ngModel>
+                    <option *ngFor="let schoolName of schools" value="{{schoolName.schoolName}}">{{schoolName.schoolName}}</option>
+                </select>
             </mat-form-field>
+            
+            <input matInput type="text" name="role" ngModel="schoolAdmin" hidden>
+            <input matInput type="text" name="schoolCity" ngModel={{user.schoolCity}} readonly>
+           
+            <!-- <input matInput type="text" [(ngModel)]="role" ngModel="schoolAdmin"> -->
+            <button mat-flat-button color="accent" style="margin-right: 4px;" routerLink="/register-school-admin">Cancel</button>
+            <!--Calling addSchoolAdmin() function-->
+            <button mat-flat-button color="primary" type="submit">Add Admin</button>
         </form>
-    </div>
-    <mat-dialog-actions [align]="'end'">
-        <button mat-button mat-dialog-close>Cancel</button>
-        <button mat-flat-button color="primary">Add Admin</button>
-        <!-- <button mat-flat-button color="primary"[mat-dialog-close]="true" cdkFocusInitial>Add Admin</button> -->
-    </mat-dialog-actions>
+    </mat-card>
+  
 </div>
-
+    

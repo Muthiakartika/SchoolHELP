@@ -1,61 +1,39 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { AssistanceDialogComponent } from './assistance-dialog/assistance-dialog.component';
-
-export interface RequestAssistanece {
-  id: number;
-  status: string
-  requestDesc: string;
-  requestDate: string;
-  tutorialTime: string;
-  studentLevel: string;
-  studentNumber: string;
-}
-
-const STATIC_DATA: RequestAssistanece[]= [
-  {id: 1, status: 'New', requestDesc: 'Assistance in cursed tools subject', requestDate: '1/2/2023', tutorialTime: '15:00pm', studentLevel: '3rd Grade', studentNumber: '4'}
-]
+import { Subscription } from 'rxjs';
+import { Assistance } from 'src/app/model/assistance.model'; // calling Assitance model
+import { User } from 'src/app/model/user.model';
+import { AssistanceService } from 'src/app/service/request/assistance.service'; // calling Assistance service
+import jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-submit-request-assistance',
   templateUrl: './submit-request-assistance.component.html',
   styleUrls: ['./submit-request-assistance.component.css']
 })
+
 export class SubmitRequestAssistanceComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  displayedColumnsAssistance: string[] = ['status', 'requestDate', 'requestDesc', 'proposedDate','tutorialTime', 'studentLevel', 
+  'studentNumber'];
+  assistanceReq:Assistance[] = [] // creating new array variable for using Assistance model
+  private resourceSub: Subscription | undefined;
+  user: User;
   
-  displayedColumnsAssistance: string[] = ['id', 'status','requestDesc', 'requestDate', 'tutorialTime', 'studentLevel', 'studentNumber', 'action'];
-  dataSourceAssistance!: MatTableDataSource<RequestAssistanece>;
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-
-  ngAfterViewInit(): void {
-    this.dataSourceAssistance.paginator = this.paginator;
-    this.dataSourceAssistance.sort = this.sort;
-  }
+  constructor(private service:AssistanceService) { }
 
   ngOnInit(): void {
-    this.dataSourceAssistance = new MatTableDataSource(STATIC_DATA);
-  }
+    this.service.show(); // calling the show funtion in service and show it in the table
+    this.resourceSub = this.service.getAssistanceUpdateListener()
+    .subscribe((assistance: Assistance[])=>{
+      this.assistanceReq = assistance;
+    })
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSourceAssistance.filter = filterValue.trim().toLowerCase();
+    // get the JWT from local storage
+    const token = localStorage.getItem('token');
 
-    if (this.dataSourceAssistance.paginator) {
-      this.dataSourceAssistance.paginator.firstPage();
-    }
-  }
-
-  openDialog(){
-    this.dialog.open(AssistanceDialogComponent, {
-      width: "40%"
-    }).afterClosed();
+    // decode the JWT to access the user's information
+    this.user = jwtDecode(token);
+    console.log(this.user)
   }
 
 }

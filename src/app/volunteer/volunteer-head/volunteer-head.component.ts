@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/auth/auth.service';
 
 @Component({
   selector: 'app-volunteer-head',
@@ -10,12 +11,16 @@ export class VolunteerHeadComponent implements OnInit {
 
   @Output() toggleSidebarForMe: EventEmitter<any> = new EventEmitter();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private auth:AuthService) {}
 
   ngOnInit(): void {}
 
   toggleSidebar() {
     this.toggleSidebarForMe.emit();
+  }
+
+  logout(){
+    this.auth.logout();
   }
 
 }
