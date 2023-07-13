@@ -1,4 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
+
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { RequestService } from 'src/app/service/request/request.service'; // calling submit offer service
@@ -7,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Assistance } from 'src/app/model/assistance.model';
 import jwtDecode from 'jwt-decode';
 import { UserVolunteer } from 'src/app/model/userVolunteer.model';
+
 
 @Component({
   selector: 'app-submit-offer-dialog',
@@ -55,6 +57,7 @@ export class SubmitOfferDialogComponent implements OnInit {
       form.value.status, 
       form.value.fullname);
     this.router.navigate(['view-requests'])
+
   }
 
 }

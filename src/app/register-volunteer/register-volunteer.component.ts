@@ -40,4 +40,5 @@ export class RegisterVolunteerComponent implements OnInit {
     );
     this.router.navigate(['/login'])
   }
+
 }

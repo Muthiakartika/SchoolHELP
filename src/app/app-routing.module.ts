@@ -9,25 +9,15 @@ import { ProfileUpdateComponent } from './school-admin/edit-profile-school-admin
 import { ReviewOffersDialogComponent } from './school-admin/review-offers/review-offers-dialog/review-offers-dialog.component';
 import { ReviewOffersRequestComponent } from './school-admin/review-offers/review-offers-request/review-offers-request.component';
 import { ReviewOffersComponent } from './school-admin/review-offers/review-offers.component';
+
 import { AssistanceDialogComponent } from './school-admin/submit-request-assistance/assistance-dialog/assistance-dialog.component';
-import { SubmitRequestAssistanceComponent } from './school-admin/submit-request-assistance/submit-request-assistance.component';
-import { ResourceDialogComponent } from './school-admin/submit-request-resource/resource-dialog/resource-dialog.component';
-import { SubmitRequestResourceComponent } from './school-admin/submit-request-resource/submit-request-resource.component';
-import { DashboardSchoolhelpAdminComponent } from './schoolhelp-admin/dashboard-schoolhelp-admin/dashboard-schoolhelp-admin.component';
-import { RegisterSchoolAdminDialogComponent } from './schoolhelp-admin/register-school-admin/register-school-admin-dialog/register-school-admin-dialog.component';
-import { RegisterSchoolAdminComponent } from './schoolhelp-admin/register-school-admin/register-school-admin.component';
-import { RegisterSchoolDialogComponent } from './schoolhelp-admin/register-school/register-school-dialog/register-school-dialog.component';
-import { RegisterSchoolComponent } from './schoolhelp-admin/register-school/register-school.component';
-import { DashboardVolunteerComponent } from './volunteer/dashboard-volunteer/dashboard-volunteer.component';
-import { ChangePasswordVolunteerComponent } from './volunteer/edit-profile-volunteer/change-password-volunteer/change-password-volunteer.component';
-import { EditProfileVolunteerComponent } from './volunteer/edit-profile-volunteer/edit-profile-volunteer.component';
-import { ProfileUpdateVolunteerComponent } from './volunteer/edit-profile-volunteer/profile-update-volunteer/profile-update-volunteer.component';
-import { ViewRequestsComponent } from './volunteer/view-requests/view-requests.component';
+
 import { SubmitOfferDialogComponent } from './volunteer/view-requests/submit-offer-dialog/submit-offer-dialog.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: '', component: LoginComponent},
+
   
   // schoolHELP ADMIN
   {path: 'register-school', component: RegisterSchoolComponent},
@@ -53,7 +43,9 @@ const routes: Routes = [
   {path: 'register-volunteer', component: RegisterVolunteerComponent},
   {path: 'dashboard-volunteer', component: DashboardVolunteerComponent},
   {path: 'view-requests', component: ViewRequestsComponent},
+
   {path: 'submit-offer/:requestId', component: SubmitOfferDialogComponent},
+
   {path: 'edit-profile-volunteer', component: EditProfileVolunteerComponent},
   {path: 'profile-update-volunteer', component: ProfileUpdateVolunteerComponent},
   {path: 'change-password-volunteer', component: ChangePasswordVolunteerComponent},

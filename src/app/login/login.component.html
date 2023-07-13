@@ -1,6 +1,7 @@
 <app-header></app-header>
 <div class="form-container" style="max-width: 600px;">
     <h1 style="text-align: center; margin-bottom: 30px;">Login to SchoolHELP</h1>
+
     <mat-card>
         <form (submit)="LoginUser(loginForm)" #loginForm="ngForm" >
             <mat-form-field class="form-full-width">
@@ -25,6 +26,8 @@
             type="submit">LOGIN</button> <!--Using LoginUser() function-->
         </form>
     </mat-card>
+
+   
     <div>
         <a routerLink="/register-volunteer"><p style="text-align: center; padding-top: 20px;">Don't have an account? Sign Up</p></a>
     </div>

@@ -1,9 +1,11 @@
 import { Component, OnInit} from '@angular/core';
+
 import { AuthService } from '../service/auth/auth.service'; // calling Auth service
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from '../model/user.model';
 import { UserVolunteer } from '../model/userVolunteer.model';
+
 
 @Component({
   selector: 'app-header',
@@ -24,9 +26,11 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+
   // userRole(){
   //   return this.auth.user.role;
   // }
+
 
   onLogout(){
     this.auth.logout;
